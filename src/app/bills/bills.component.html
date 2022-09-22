@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Side -->
+        <div class="container col mt-4 ms-3">
+            <span  style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                <h1><b> Recharge and pay bills </b></h1>
+                <h2><b> for exciting offers</b></h2>
+            </span>
+            <div>
+                <form class="mt-4" style="width: 27rem;">
+                    <span class="d-flex justify-content-around mt-5">
+                        <label for="prepaid" style="width: 10rem;" (click)="prepaid()">
+                            <input style="width: 30%;height: 1.5em;" [checked]="preCheck"   type="radio" name="service" id="">
+                            <span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="fs-4 p-2"><b>Prepaid</b></span>
+                        </label>
+                        <label for="postpaid" style="width: 10rem;" (click)="postpaid()">
+                            <input style="width: 30%;height: 1.5em;" [checked]="postCheck"  type="radio" name="service" id="">
+                            <span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="fs-4 p-2"><b>Postpaid</b></span>
+                        </label>
+                    </span>
+                    <span class="d-flex mt-5 ms-4" style="display:inline-block; border: 0.5px solid black;outline:none;border-radius: 30px;">
+                        <input type="tel" name="phone" placeholder="Your Number" class="p-3" style="border:none;width: 25rem;outline:none;border-radius: 30px;" required>
+                        <button class="btn btn-dark ps-3 pe-4 text-center" style="border-radius: 30px;width:30%">{{text}}</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+        <!-- Right Side -->
+        <div class="container-fluid col">
+            <img src="assets/banner2.png" class="img-fluid rounded float-end" style="width: 30rem;" alt="">
+        </div>
+    </div>
+</div>
