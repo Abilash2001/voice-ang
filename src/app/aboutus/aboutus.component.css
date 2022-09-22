@@ -1,0 +1,30 @@
+li{
+  list-style-type: none;
+  width: 69%;
+  display:inline-block;
+  margin-right:0px;
+}
+ul{
+   box-shadow: 0 0 5px 0px grey;
+   position:relative;
+   padding:1px;
+   margin-left:0px;
+}
+div{
+  margin-right:0px;
+  padding:0px;
+}
+button{
+  border:none;
+  background-color:transparent;
+  text-align:left;
+  height:70px;
+  width:180px;
+  box-sizing:border-box;
+  padding-right :15px;
+  padding-left : 20px;
+}
+button:hover{
+  background-color: #f44336;
+  color: white;
+}
