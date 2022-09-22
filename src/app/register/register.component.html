@@ -2,28 +2,34 @@
 <html lang="en">
 <head>
   <app-meta></app-meta>
-
 </head>
 <body>
   <app-header></app-header>
-  <div class="container-fluid row">
-<!--   left side-->
-    <div class="container col">
-        <img src="assets/mainImg.png" height="300rem" width="650rem" class="img-fluid">
+  <section class="row">
+    <!-- left side -->
+    <div class="col">
+      <img src="assets/mainImg.png" style="width: 40rem;" class="img-fluid" alt="">
     </div>
-<!--    right side-->
-    <div class="container col">
-      <form>
-        <h1>Signup</h1>
-        <div class="mt-5">
-          <h5>Email :</h5> <input class="form-control" type="text" name="email" placeholder="Enter your Email id" id=""><br>
-          <h5>Mobile Number :</h5> <input class="form-control" type="text" name="email" placeholder="Enter your Mobile Number" id=""><br>
-          <h5>Password :</h5> <input class="form-control" type="password" placeholder="Enter the Password" name="password" id=""><br>
-          <button class="btn btn-dark">Submit</button>
-        </div>
-      </form>
+    <!-- right side -->
+    <div class="col p-3 mt-5" style="position: relative;right: 1rem;top:5rem">
+      <h1 class="text-center">SignUp</h1>
+      <div class="container">
+        <form action="logval" class="p-3">
+          <span class="d-flex justify-content-center">
+            <input type="email" name="email" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Email">
+          </span>
+          <span class="d-flex justify-content-center">
+            <input type="tel" name="phone" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Phone">
+          </span>
+          <span class="d-flex justify-content-center">
+            <input type="password" name="password" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Password"><br>
+          </span>
+          <span class="d-flex justify-content-center mt-5"><button style="width: 50%;" class="btn btn-dark">Submit</button></span>
+        </form>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <app-footer></app-footer>
 </body>
 </html>
