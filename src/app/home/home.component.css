@@ -1,0 +1,11 @@
+table{
+  position:relative;
+  left:10rem;
+  top:5rem;
+}
+td{
+  padding-right: 5rem;
+}
+figcaption{
+  text-align:center;
+}
