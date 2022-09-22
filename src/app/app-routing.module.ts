@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 const routes: Routes = [
+  {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home',component: HomeComponent},
   {path:'login',component : LoginComponent},
   {path:'register',component : RegisterComponent},
