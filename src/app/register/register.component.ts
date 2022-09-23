@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
   }
 
   addNewUser = async () => {
-    const data = {name: this.name, email: this.email,phone: this.phone ,password: this.password}
     try
     {
         let newForm = new FormData()
@@ -34,8 +33,6 @@ export class RegisterComponent implements OnInit {
         
         const resp = await axios.post("http://localhost:8000/sign",newForm)
         window.location=resp.data;
-
-        
     }catch(e)
     {
       console.log(e)
