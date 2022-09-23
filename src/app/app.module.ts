@@ -18,6 +18,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { HelpmeComponent } from './helpme/helpme.component';
 import { MetaComponent } from './meta/meta.component';
 import { OtpComponent } from './otp/otp.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OtpComponent } from './otp/otp.component';
     HelpmeComponent,
     MetaComponent,
     OtpComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
