@@ -7,6 +7,7 @@ import { OtpComponent } from './otp/otp.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { DongleComponent } from './dongle/dongle.component';
 import { FeedbackComponent } from './feedback/feedback.component'
+
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home',component: HomeComponent},
@@ -14,8 +15,8 @@ const routes: Routes = [
   {path:'signup',component : RegisterComponent},
   {path:'otp',component : OtpComponent},
   {path:'aboutus',component : AboutusComponent},
-{path:'dongle',component: DongleComponent},
- { path: 'feedback', component: FeedbackComponent}
+  {path:'dongle',component: DongleComponent},
+  {path: 'feedback', component: FeedbackComponent}
 ]
 
 @NgModule({
