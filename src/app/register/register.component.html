@@ -6,6 +6,9 @@
 <body>
   <app-header></app-header>
   <section class="row">
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{error}}
+    </div>
     <!-- left side -->
     <div class="col">
       <img src="assets/mainImg.png" style="width: 40rem;" class="img-fluid" alt="">
@@ -14,20 +17,21 @@
     <div class="col p-3 mt-5" style="position: relative;right: 1rem;top:1rem">
       <h1 class="text-center">SignUp</h1>
       <div class="container">
-        <form action="logval" class="p-3" method="post">
-          <span class="d-flex justify-content-center">
-            <input type="text" name="name" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Username">
+        <form class="p-3" method="post">
+
+         <span class="d-flex justify-content-center">
+            <input type="text" name="name" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Username" [(ngModel)]="name">
           </span>
           <span class="d-flex justify-content-center">
-            <input type="email" name="email" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Email">
+            <input type="email" name="email" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Email" [(ngModel)]="email">
           </span>
           <span class="d-flex justify-content-center">
-            <input type="tel" name="phone" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Phone">
+            <input type="tel" name="phone" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Phone" [(ngModel)]="phone">
           </span>
           <span class="d-flex justify-content-center">
-            <input type="password" name="password" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Password"><br>
+            <input type="password" name="password" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Password" [(ngModel)]="password"><br>
           </span>
-          <span class="d-flex justify-content-center mt-5"><button style="width: 50%;" class="btn btn-dark">Submit</button></span>
+          <span class="d-flex justify-content-center mt-5"><button style="width: 50%;" (click)="addNewUser()" class="btn btn-dark">Submit</button></span>
         </form>
       </div>
     </div>
