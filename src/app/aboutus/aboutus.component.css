@@ -6,7 +6,7 @@ li{
 }
 ul{
    box-shadow: 0 0 5px 0px grey;
-   position:relative;
+   position:fixed;
    padding:1px;
    margin-left:0px;
 }
