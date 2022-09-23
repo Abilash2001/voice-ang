@@ -1,1 +1,121 @@
-<p>dongle works!</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <app-meta></app-meta>
+
+</head>
+<body>
+<app-header></app-header>
+<img src="assets/img1.PNG" height="400rem" width="1250rem">
+<div class="container ms-7 mt-5">
+  <h5>Enter the details to port mobile number online</h5><br>
+  <input type="radio" id="Prepaid" name="aa">Prepaid&nbsp;&nbsp;
+   <input type="radio" id="Postpaid" name="aa">Postpaid&nbsp;&nbsp;
+</div>
+  <div class="container ms-7 mt-3">
+<form style="width: 40rem">
+  <div class="row">
+    <div class="col">
+      <input class="form-control " type="text" id="inputPin" placeholder="Enter Pincode">
+      </div>
+    <div class="col">
+      <input class="form-control " type="text" id="inputNo" placeholder="Enter Mobile Number to Port">
+      </div>
+  </div>
+  </form>
+  </div>
+<div class="container ms-7 mt-5">
+    <h5>Enter address to place order</h5><br>
+  </div>
+    <div class="container ms-7 mt-3 mb-5">
+<form style="width: 60rem">
+  <div class="row">
+    <div class="col">
+      <input class="form-control " type="text" id="name" placeholder="Enter Your Name">
+      </div>
+    <div class="col">
+      <input class="form-control" type="text" id="stname" placeholder="Enter Street Name">
+      </div>
+    <div class="col">
+      <input class="form-control" type="text" id="flatno" placeholder="Enter Flat/House No">
+      </div>
+  </div>
+</form>
+</div>
+<!--div class="container ms-7">
+  <div class="row">
+    <div class="col">
+  <h2>$250</h2>
+    </div>
+  <div class="col">
+  <h3>1.5 GB/day</h3>
+    <h4>data</h4>
+    </div>
+<div class="col">
+   <button class="btn btn-danger">View Plan Details</button>
+    </div>
+</div>
+</div-->
+
+<div class="card p-3 ms-5  me-1  mb-3" >
+  <h6>Prepaid</h6>
+<div class="card-body row">
+        <span class="col">
+          <h3><b>$299</b></h3>
+        </span>
+        <span class="col">
+          <h6><b>1.5GB/day</b></h6>
+          <p>Data</p>
+        </span>
+  <span class="col">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  View Plans
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</span>
+</div>
+</div>
+<div class="card p-3 ms-5  me-1  mb-3" >
+  <h6>Postpaid</h6>
+<div class="card-body row">
+        <span class="col">
+          <h3><b>$499</b></h3>
+        </span>
+        <span class="col">
+          <h6><b>2 GB/day</b></h6>
+          <p>Data</p>
+        </span>
+  <span class="col">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  View Plans
+</button>
+  </span>
+</div>
+</div>
+<div class="container ms-7 mt-5 mb-3">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Get OTP to complete order</button>
+</div>
+<app-footer></app-footer>
+</body>
+</html>
+
+

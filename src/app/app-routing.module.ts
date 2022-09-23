@@ -5,14 +5,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { DongleComponent } from './dongle/dongle.component';
+import { FeedbackComponent } from './feedback/feedback.component'
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home',component: HomeComponent},
   {path:'login',component : LoginComponent},
   {path:'signup',component : RegisterComponent},
   {path:'otp',component : OtpComponent},
-  {path:'aboutus',component : AboutusComponent}
-];
+  {path:'aboutus',component : AboutusComponent},
+{path:'dongle',component: DongleComponent},
+ { path: 'feedback', component: FeedbackComponent}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
