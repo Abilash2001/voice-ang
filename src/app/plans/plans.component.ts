@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-plans',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansComponent implements OnInit {
 
-  constructor() { }
+  viPlan = [{
+    'plan_price': '',
+    'plan_talktime':'',
+    'plan_data':'',
+    'plan_validity':'',
+  }]
+  constructor() { 
+    try
+    {
+      (async () => {
+        this.viPlan = (await axios.get("http://localhost:8000/plan?usage=100")).data
+        
+      })()
+    }catch(e)
+    {
+      console.log(e)
+    }
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

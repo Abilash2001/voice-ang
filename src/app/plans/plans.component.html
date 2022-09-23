@@ -3,61 +3,19 @@
   <b>Best Seller Unlimited Plans</b></h1>
   
   <div class="container-fluid row d-flex justify-content-center bg-warning p-1 pb-3 rounded">
-    <!-- 1st offer -->
-    <div class="card p-3 mt-5 me-1" style="width: 21rem;">
-      <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><b>$299</b></h2>
+    <div class="card p-3 mt-5 me-1 col" style="width: 21rem;" *ngFor="let i of viPlan">
+      <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><b>${{i.plan_price}}</b></h2>
       <div class="card-body row">
         <span class="col">
-          <h6><b>Truly Unlimited</b></h6>
+          <h6><b>{{i.plan_talktime}}</b></h6>
           <p>Calls</p>
         </span>
         <span class="col">
-          <h6><b>1.5GB/day</b></h6>
+          <h6><b>{{i.plan_data}}GB/day</b></h6>
           <p>Data</p>
         </span>
         <span class="col">
-          <h6 class="col"><b>28Days</b></h6>
-          <p>Validity</p>
-        </span>
-        <button class="btn btn-danger">Recharge</button>
-      </div>  
-    </div>
-
-    <!-- 2nd offer -->
-    <div class="card p-3 mt-5 me-1" style="width: 23rem;">
-      <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><b>$479</b></h2>
-      <div class="card-body row">
-        <span class="col">
-          <h6><b>Truly Unlimited</b></h6>
-          <p>Calls</p>
-        </span>
-        <span class="col">
-          <h6><b>1.5GB/day</b></h6>
-          <p>Data</p>
-        </span>
-        <span class="col">
-          <h6 class="col"><b>56Days</b></h6>
-          <p>Validity</p>
-        </span>
-        <button class="btn btn-danger">Recharge</button>
-      </div>  
-    </div>
-
-
-    <!-- 3rd offer -->
-    <div class="card p-3 mt-5" style="width: 23rem;">
-      <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><b>$719</b></h2>
-      <div class="card-body row">
-        <span class="col">
-          <h6><b>Truly Unlimited</b></h6>
-          <p>Calls</p>
-        </span>
-        <span class="col">
-          <h6><b>1.5GB/day</b></h6>
-          <p>Data</p>
-        </span>
-        <span class="col">
-          <h6 class="col"><b>84Days</b></h6>
+          <h6 class="col"><b>{{i.plan_validity}}Days</b></h6>
           <p>Validity</p>
         </span>
         <button class="btn btn-danger">Recharge</button>
