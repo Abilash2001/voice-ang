@@ -20,6 +20,9 @@ import { MetaComponent } from './meta/meta.component';
 import { OtpComponent } from './otp/otp.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { OffersComponent } from './offers/offers.component';
+import { AdminComponent } from './admin/admin.component';
+import { NgChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -41,11 +44,13 @@ import { OffersComponent } from './offers/offers.component';
     OtpComponent,
     FeedbackComponent,
     OffersComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
