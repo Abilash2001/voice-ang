@@ -11,7 +11,6 @@ export class FeedbackComponent implements OnInit {
   error:string="";
   Email:string="";
   Feedback:string="";
-  csrf:any;
   constructor(router: ActivatedRoute) {
    router.queryParams.subscribe((params) => {return this.error = params['error']})
   }
