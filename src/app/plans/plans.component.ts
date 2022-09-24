@@ -18,7 +18,7 @@ export class PlansComponent implements OnInit {
     try
     {
       (async () => {
-        this.viPlan = (await axios.get("http://localhost:8000/plan?usage=100")).data
+        this.viPlan = (await axios.get("http://localhost:8000/plan?best=3")).data
         
       })()
     }catch(e)

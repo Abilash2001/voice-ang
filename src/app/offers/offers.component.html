@@ -12,53 +12,28 @@
         </h1>
         <hr>
         <div class="container row mt-5">
-            <div class="card mb-3">
+            <div class="card mb-3" *ngFor="let i of viPlans">
                 <div class="card-body row">
                     <span class="bg-dark text-white col-2 rounded text-center p-3">
-                        <h1>200$</h1>
+                        <h1>${{i.plan_price}}</h1>
                     </span>
                     <span class="col p-3">
-                        <h5><b>Truly Unlimited</b></h5>
+                        <h5><b>{{i.plan_talktime}}</b></h5>
                         <p>Calls</p>
                     </span>
                     <span class="col p-3">
-                        <h5><b>1.5GB/day</b></h5>
+                        <h5><b>{{i.plan_data}}GB/day</b></h5>
                         <p>Data</p>
                     </span>
                     <span class="col p-3">
-                        <h5><b>28Days</b></h5>
+                        <h5><b>{{i.plan_validity}}Days</b></h5>
                         <p>Validity</p>
                     </span>
                     <span class="col p-3">
-                        <button class="btn btn-danger" style="width: 60%;">Buy Pack</button>
+                        <button id="{{i.id}}" class="btn btn-danger" style="width: 60%;">Buy Pack</button>
                     </span>
                 </div>
             </div>
-
-
-            <div class="card mb-3">
-                <div class="card-body row">
-                    <span class="bg-dark text-white col-2 rounded text-center p-3">
-                        <h1>200$</h1>
-                    </span>
-                    <span class="col p-3">
-                        <h5><b>Truly Unlimited</b></h5>
-                        <p>Calls</p>
-                    </span>
-                    <span class="col p-3">
-                        <h5><b>1.5GB/day</b></h5>
-                        <p>Data</p>
-                    </span>
-                    <span class="col p-3">
-                        <h5><b>28Days</b></h5>
-                        <p>Validity</p>
-                    </span>
-                    <span class="col p-3">
-                        <button class="btn btn-danger" style="width: 60%;">Buy Pack</button>
-                    </span>
-                </div>
-            </div>
-            
         </div>
     </section>
     <app-footer></app-footer>
