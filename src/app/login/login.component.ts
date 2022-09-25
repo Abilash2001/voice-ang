@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import * as FormData from 'form-data';
-import { userInfo } from 'os';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

@@ -10,6 +10,7 @@ import { FeedbackComponent } from './feedback/feedback.component'
 import { OffersComponent } from './offers/offers.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewpackComponent } from './admin/admin.component';
+import { NewplanComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'feedback', component: FeedbackComponent},
   {path: 'offers', component: OffersComponent},
   {path: 'admin', component: AdminComponent},
-  {path: 'admin/viewpack', component: ViewpackComponent}
+  {path: 'admin/viewpack', component: ViewpackComponent},
+  {path: 'admin/newplan', component: NewplanComponent}
 ]
 
 @NgModule({

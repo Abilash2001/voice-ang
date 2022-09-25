@@ -26,7 +26,7 @@ import { AdminuserCategoryComponent } from './admin/admin.component';
 import { AdminheaderComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ViewpackComponent } from './admin/admin.component';
-
+import { NewplanComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,8 @@ import { ViewpackComponent } from './admin/admin.component';
     AdminpackComponent,
     AdminuserCategoryComponent,
     AdminheaderComponent,
-    ViewpackComponent
+    ViewpackComponent,
+    NewplanComponent
   ],
   imports: [
     BrowserModule,

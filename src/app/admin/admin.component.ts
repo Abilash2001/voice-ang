@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import { Chart } from 'chart.js';
+
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +10,9 @@ import { Chart } from 'chart.js';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit, AfterViewInit {
-  constructor() { 
+  success:string="";
+  constructor(router: ActivatedRoute) { 
+    router.queryParams.subscribe((params) => { return this.success=params['success']})
   }
   ngOnInit(): void {
   }
@@ -201,11 +205,46 @@ export class ViewpackComponent{
     'id':'',
     'plan_usage':''
   }]
-  constructor()
+  error: string="";
+  success: string="";
+  constructor(router: ActivatedRoute)
   {
+    router.queryParams.subscribe((params) => {
+      this.error=params['error'];
+      this.success=params['success'];
+    });
     (async () => {
       this.viAllPack = (await axios.get('http://localhost:8000/plan?all=True')).data
     })()
+  }
+
+ deleteThisPack = async (e:any) => {
+    const resp = await axios.delete("http://localhost:8000/remplan?plan="+e)
+    window.location=resp.data
+  }
+}
+
+@Component({
+  selector: 'app-newplan',
+  templateUrl: './newplan.component.html',
+})
+export class NewplanComponent{
+  newplan_price:string="";
+  newplan_talktime:string="";
+  newplan_data:string="";
+  newplan_validity:string="";
+  error:string="";
+  constructor(router: ActivatedRoute){
+    router.queryParams.subscribe((params) => {return this.error = params['error']})
+  }
+  newPlan = async () => {
+    let newPlan = new FormData();
+    newPlan.append('price',this.newplan_price);
+    newPlan.append('talktime',this.newplan_talktime);
+    newPlan.append('data',this.newplan_data);
+    newPlan.append('validity',this.newplan_validity)
+    const resp = (await axios.post("http://localhost:8000/addplan",newPlan));
+    window.location=resp.data;
   }
 }
 
