@@ -23,6 +23,7 @@ import { OffersComponent } from './offers/offers.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminpackComponent } from './admin/admin.component';
 import { AdminuserCategoryComponent } from './admin/admin.component';
+import { AdminheaderComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
 
 
@@ -48,7 +49,8 @@ import { NgChartsModule } from 'ng2-charts';
     OffersComponent,
     AdminComponent,
     AdminpackComponent,
-    AdminuserCategoryComponent
+    AdminuserCategoryComponent,
+    AdminheaderComponent
   ],
   imports: [
     BrowserModule,

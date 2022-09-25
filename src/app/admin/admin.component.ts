@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import axios from 'axios';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -64,7 +65,27 @@ function renderUserCountChart(userChartCanvas:any,userChart:any)
   selector: 'app-adminpack',
   templateUrl: './adminpack.component.html',
 })
-export class AdminpackComponent{}
+export class AdminpackComponent{
+  viBestPack=[
+    {
+      'plan_price':'',
+      'plan_talktime':'',
+      'plan_data':'',
+      'plan_validity':'',
+      'id':'',
+      'plan_usage':'0'
+    }
+  ]
+  constructor(){
+    (async () => {
+      try {
+        this.viBestPack = (await axios.get("http://localhost:8000/plan?best=6")).data
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }
+}
 
 @Component({
   selector: 'app-adminuserCategory',
@@ -160,4 +181,10 @@ function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryChart:an
   } 
   })
 }
+
+@Component({
+  selector: 'app-adminheader',
+  templateUrl: './adminheader.component.html',
+})
+export class AdminheaderComponent{}
 
