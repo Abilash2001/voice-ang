@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <app-meta></app-meta>
+</head>
+<body>
+    <app-adminheader></app-adminheader>
+    <section class="container">
+        <div class="container row p-3 d-flex justify-content-center justify-content-around">
+            <h2 class="text-center container alert alert-secondary"><b>All Plans</b></h2>
+            <div class="card p-3" style="width:20rem" *ngFor="let i of viAllPack">
+                <h3 class="text-center bg-dark text-white p-3 rounded">${{i.plan_price}}</h3>
+                <div class="card-body row">
+                    <span class="col">
+                        <h5><b>{{i.plan_talktime}}</b></h5>
+                        <p>Calls</p>
+                    </span>
+                    <span class="col">
+                        <h5><b>{{i.plan_data}}GB/Day</b></h5>
+                        <p>Data</p>
+                    </span>
+                    <div class="row mt-3">
+                        <span class="col">
+                            <h5><b>{{i.plan_validity}}Days</b></h5>
+                            <p>Validity</p>
+                        </span>
+                        <span class="col">
+                            <h5><b>{{i.plan_usage}}</b></h5>
+                            <p>Users</p>
+                        </span>
+                    </div>
+                    <button id="{{i.id}}" class="btn btn-danger container">Edit Pack</button>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</body>
+</html>

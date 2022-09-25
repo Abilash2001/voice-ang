@@ -25,6 +25,7 @@ import { AdminpackComponent } from './admin/admin.component';
 import { AdminuserCategoryComponent } from './admin/admin.component';
 import { AdminheaderComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ViewpackComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { NgChartsModule } from 'ng2-charts';
     AdminComponent,
     AdminpackComponent,
     AdminuserCategoryComponent,
-    AdminheaderComponent
+    AdminheaderComponent,
+    ViewpackComponent
   ],
   imports: [
     BrowserModule,

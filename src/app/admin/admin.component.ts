@@ -188,3 +188,24 @@ function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryChart:an
 })
 export class AdminheaderComponent{}
 
+@Component({
+  selector: 'app-viewpack',
+  templateUrl: './viewpack.component.html',
+})
+export class ViewpackComponent{
+  viAllPack= [{
+    'plan_price':'',
+    'plan_talktime':'',
+    'plan_data':'',
+    'plan_validity':'',
+    'id':'',
+    'plan_usage':''
+  }]
+  constructor()
+  {
+    (async () => {
+      this.viAllPack = (await axios.get('http://localhost:8000/plan?all=True')).data
+    })()
+  }
+}
+

@@ -9,7 +9,7 @@ import { DongleComponent } from './dongle/dongle.component';
 import { FeedbackComponent } from './feedback/feedback.component'
 import { OffersComponent } from './offers/offers.component';
 import { AdminComponent } from './admin/admin.component';
-
+import { ViewpackComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
@@ -21,7 +21,8 @@ const routes: Routes = [
   {path:'dongle', component: DongleComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'offers', component: OffersComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent},
+  {path: 'admin/viewpack', component: ViewpackComponent}
 ]
 
 @NgModule({
