@@ -5,6 +5,9 @@
 </head>
 <body>
   <app-header></app-header>
+  <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{error}}
+  </div>
   <section class="row">
     <!-- left side -->
     <div class="col">
@@ -16,12 +19,12 @@
       <div class="container">
         <form action="logval" class="p-3">
           <span class="d-flex justify-content-center">
-            <input type="tel" name="phone" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Phone">
+            <input type="tel" name="phone" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Phone" [(ngModel)]="phone">
           </span>
           <span class="d-flex justify-content-center">
-            <input type="password" name="password" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Password"><br>
+            <input type="password" name="password" style="width: 80%;border:0px; border-bottom: 2px solid black;" class="p-1 mt-3 fs-4" placeholder="Password" [(ngModel)]="password"><br>
           </span>
-          <span class="d-flex justify-content-center mt-5"><button style="width: 50%;" class="btn btn-dark">Submit</button></span>
+          <span class="d-flex justify-content-center mt-5"><button style="width: 50%;" class="btn btn-dark" (click)="checkUser()">Submit</button></span>
         </form>
       </div>
     </div>

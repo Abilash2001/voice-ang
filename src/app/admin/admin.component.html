@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <app-meta></app-meta>
+</head>
+<body>
+    <app-adminheader></app-adminheader>
+    <div class="alert alert-success" *ngIf="success">
+        {{success}}
+    </div>
+    <section class="container p-3">
+        <h3 class="text-center  border border-1 alert alert-secondary"><b>Users</b></h3>
+        <!-- style="background-color: rgba(0, 0, 0, 0.847);" -->
+        <canvas   class=" rounded" id="user" width="400" height="110"></canvas>
+    </section>
+    <app-adminuserCategory></app-adminuserCategory>
+    <app-adminpack></app-adminpack>
+    <app-footer></app-footer>
+</body>
+</html>

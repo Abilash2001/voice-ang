@@ -11,12 +11,12 @@
 <div class="d-flex justify-content-center mt-5">
   <form style="width: 25rem" class="container border border-5 p-3">
     <div class="col">
-      <input class="form-control" type="text" id="inputid" placeholder="Enter Email">
+      <input class="form-control" type="text" name="Email" placeholder="Enter Email" [(ngModel)]="Email">
       </div>
     <div class="col">
-      <textarea class="form-control mt-4" placeholder="Enter feedback"></textarea>
+      <textarea class="form-control mt-4" name="Feedback" placeholder="Enter feedback" [(ngModel)]="Feedback"></textarea>
       </div>
-    <span class="d-flex justify-content-center mt-3"><button style="width:30%" class="btn btn-dark">Submit</button></span>
+    <span class="d-flex justify-content-center mt-3"><button style="width:30%" (click)="addFeedback()" class="btn btn-dark">Submit</button></span>
   </form>
   </div>
 </div>

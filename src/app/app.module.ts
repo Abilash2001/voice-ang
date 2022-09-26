@@ -19,6 +19,14 @@ import { HelpmeComponent } from './helpme/helpme.component';
 import { MetaComponent } from './meta/meta.component';
 import { OtpComponent } from './otp/otp.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { OffersComponent } from './offers/offers.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminpackComponent } from './admin/admin.component';
+import { AdminuserCategoryComponent } from './admin/admin.component';
+import { AdminheaderComponent } from './admin/admin.component';
+import { NgChartsModule } from 'ng2-charts';
+import { ViewpackComponent } from './admin/admin.component';
+import { NewplanComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -39,11 +47,19 @@ import { FeedbackComponent } from './feedback/feedback.component';
     MetaComponent,
     OtpComponent,
     FeedbackComponent,
+    OffersComponent,
+    AdminComponent,
+    AdminpackComponent,
+    AdminuserCategoryComponent,
+    AdminheaderComponent,
+    ViewpackComponent,
+    NewplanComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

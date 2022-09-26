@@ -13,7 +13,6 @@ export class RegisterComponent implements OnInit {
   email:string="";
   phone:string="";
   password:string="";
-  csrf:any;
   constructor(router: ActivatedRoute) { 
 
     router.queryParams.subscribe((params) => {return this.error = params['error']})
