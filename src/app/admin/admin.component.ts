@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import { Chart } from 'chart.js';
 
-
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -11,18 +10,19 @@ import { Chart } from 'chart.js';
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
-  constructor(router: ActivatedRoute) { 
+  constructor(router: ActivatedRoute) {
     router.queryParams.subscribe((params) => { return this.success=params['success']})
   }
   ngOnInit(): void {
   }
   userChartCanvas:any;
   userChart:any;
-  
+
   ngAfterViewInit()
   {
     renderUserCountChart(this.userChartCanvas,this.userChart)
   }
+
 }
 
 function renderUserCountChart(userChartCanvas:any,userChart:any)
@@ -128,7 +128,7 @@ function renderCustomerSatisfactory(userCategoryCanvaChart:any, userCategoryChar
           ],
           borderWidth: 3
       }]
-  } 
+  }
   })
 }
 
@@ -155,7 +155,7 @@ function renderTIcketCategoryChart(userCategoryCanvaChart:any,userCategoryChart:
           ],
           borderWidth: 3
       }]
-  } 
+  }
   })
 }
 
@@ -182,7 +182,7 @@ function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryChart:an
           ],
           borderWidth: 3
       }]
-  } 
+  }
   })
 }
 
@@ -246,5 +246,39 @@ export class NewplanComponent{
     const resp = (await axios.post("http://localhost:8000/addplan",newPlan));
     window.location=resp.data;
   }
+}
+
+
+@Component({
+  selector: 'app-editplan',
+  templateUrl: './editplan.component.html',
+})
+export class EditplanComponent{
+  editPack ={
+  id:"",
+  plan_price:'',
+  plan_talktime :"",
+  plan_validity:"",
+  plan_data:"",
+}
+  error:string="";
+  id:string="";
+  constructor(router: ActivatedRoute){
+    router.queryParams.subscribe((params) => {return this.error = params['error']});
+    router.queryParams.subscribe((params) => {return this.id = params['id']});
+    (async () => {
+      this.editPack=  (await axios.get('http://localhost:8000/fetchplan?id='+this.id)).data[0]
+    } )()
+  }
+ //   editplan = async () => {
+//     let editPlan = new FormData();
+//     editPlan.append('price',this.editPack.plan_price);
+//     editPlan.append('talktime',this.editPack.plan_talktime);
+//     editPlan.append('data',this.editPack.plan_data);
+//     editPlan.append('validity',this.editPack.plan_validity)
+//     editPlan.append('id',this.editPack.id)
+//     const resp = (await axios.post("http://localhost:8000/editplan",editPlan));
+//     window.location=resp.data;
+//   }
 }
 
