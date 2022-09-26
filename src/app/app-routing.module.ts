@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { BankComponent } from './bank/bank.component';
 import { DongleComponent } from './dongle/dongle.component';
 import { FeedbackComponent } from './feedback/feedback.component'
 import { OffersComponent } from './offers/offers.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'signup', component : RegisterComponent},
   {path:'otp', component : OtpComponent},
   {path:'aboutus', component : AboutusComponent},
+  {path:'bank', component: BankComponent},
   {path:'dongle', component: DongleComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'offers', component: OffersComponent},
