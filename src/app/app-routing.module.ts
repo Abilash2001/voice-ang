@@ -11,7 +11,7 @@ import { OffersComponent } from './offers/offers.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewpackComponent } from './admin/admin.component';
 import { NewplanComponent } from './admin/admin.component';
-
+import { EditplanComponent } from './admin/admin.component';
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
@@ -24,7 +24,8 @@ const routes: Routes = [
   {path: 'offers', component: OffersComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'admin/viewpack', component: ViewpackComponent},
-  {path: 'admin/newplan', component: NewplanComponent}
+  {path: 'admin/newplan', component : NewplanComponent},
+  {path: 'admin/editplan',component : EditplanComponent}
 ]
 
 @NgModule({
