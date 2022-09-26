@@ -25,8 +25,11 @@ export class LoginComponent implements OnInit {
     let User  = new FormData()
     User.append('phone',this.phone)
     User.append('password',this.password)
-    const resp = await axios.post('http://localhost:8000/login',User)
-    window.location=resp.data
+    const resp = (await axios.post('http://localhost:8000/login',User)).data
+    if(resp.authenticate == true){
+      window.sessionStorage["id"]=resp.id
+    }
+    window.location=resp.location;
   }
 
 }
