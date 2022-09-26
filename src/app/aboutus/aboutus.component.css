@@ -1,24 +1,27 @@
-li{
+li #i1,#i2,#i3,#i4,#i5,#i6{
   list-style-type: none;
   width: 69%;
   display:inline-block;
   margin-right:0px;
+  font-family:"Georgia",serif;
 }
 ul{
    box-shadow: 0 0 5px 0px grey;
    position:fixed;
    padding:1px;
    margin-left:0px;
+
 }
 div{
   margin-right:0px;
   padding:0px;
 }
 button{
+  font-family:"Georgia",serif;
   border:none;
   background-color:transparent;
   text-align:left;
-  height:70px;
+  height:80px;
   width:180px;
   box-sizing:border-box;
   padding-right :15px;
@@ -27,4 +30,11 @@ button{
 button:hover{
   background-color: #f44336;
   color: white;
+}
+img #f1,#f2,#f1{
+  width:100%;
+  height:100%;
+}
+figcaption{
+  font-family:"Georgia",serif;
 }
