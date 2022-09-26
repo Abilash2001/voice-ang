@@ -58,7 +58,7 @@ import { EditplanComponent } from './admin/admin.component';
     AdminheaderComponent,
     ViewpackComponent,
     NewplanComponent,
-    BankComponent
+    BankComponent,
     EditplanComponent
   ],
   imports: [

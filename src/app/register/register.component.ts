@@ -30,8 +30,11 @@ export class RegisterComponent implements OnInit {
         newForm.append('phone',this.phone)
         newForm.append('password',this.password)
         
-        const resp = await axios.post("http://localhost:8000/sign",newForm)
-        window.location=resp.data;
+        const resp = (await axios.post("http://localhost:8000/sign",newForm)).data
+        if(resp.authenticate == true){
+            window.sessionStorage["id"]=resp.id
+        }
+        window.location=resp.location;
     }catch(e)
     {
       console.log(e)
