@@ -8,7 +8,7 @@
                     <button onclick="window.location='admin/viewpack'" class="btn btn-dark">View All Pack</button>
                 </span>
             </span>
-            
+
             <div class="card-body">
                 <div class="container row d-flex justify-content-around">
                     <div class="card p-3" style="width:20rem" *ngFor="let i of viBestPack">
@@ -32,7 +32,7 @@
                                     <p>Users</p>
                                 </span>
                             </div>
-                            <button id="{{i.id}}" class="btn btn-danger container">Edit Pack</button>
+                            <a  class="text-decoration-none text-white" href="/admin/editplan?id={{i.id}}"><button id="{{i.id}}" class="btn btn-danger container" >Edit Pack</button></a>
                         </div>
                     </div>
                 </div>

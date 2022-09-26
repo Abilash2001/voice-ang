@@ -27,7 +27,10 @@ import { AdminheaderComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ViewpackComponent } from './admin/admin.component';
 import { NewplanComponent } from './admin/admin.component';
+
 import { BankComponent } from './bank/bank.component';
+import { EditplanComponent } from './admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +59,7 @@ import { BankComponent } from './bank/bank.component';
     ViewpackComponent,
     NewplanComponent,
     BankComponent
+    EditplanComponent
   ],
   imports: [
     BrowserModule,
