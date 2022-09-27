@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     router.queryParams.subscribe((params) => { return this.success=params['success']})
     if(window.sessionStorage['id']!=undefined)
     {
-      
+
     }
   }
   ngOnInit(): void {
@@ -274,15 +274,125 @@ export class EditplanComponent{
       this.editPack=  (await axios.get('http://localhost:8000/fetchplan?id='+this.id)).data[0]
     } )()
   }
- //   editplan = async () => {
-//     let editPlan = new FormData();
-//     editPlan.append('price',this.editPack.plan_price);
-//     editPlan.append('talktime',this.editPack.plan_talktime);
-//     editPlan.append('data',this.editPack.plan_data);
-//     editPlan.append('validity',this.editPack.plan_validity)
-//     editPlan.append('id',this.editPack.id)
-//     const resp = (await axios.post("http://localhost:8000/editplan",editPlan));
-//     window.location=resp.data;
-//   }
+    editplan = async () => {
+     let editPlan = new FormData();
+     editPlan.append('price',this.editPack.plan_price);
+     editPlan.append('talktime',this.editPack.plan_talktime);
+     editPlan.append('data',this.editPack.plan_data);
+     editPlan.append('validity',this.editPack.plan_validity)
+     editPlan.append('id',this.editPack.id)
+     const resp = (await axios.post("http://localhost:8000/editplan",editPlan));
+     window.location=resp.data;
+  }
 }
 
+
+@Component({
+  selector: 'app-admindongle',
+  templateUrl: './admindongle.component.html',
+})
+export class AdmindongleComponent{
+  vidBestPack=[
+    {
+      'plan_price':'',
+      'plan_data':'',
+      'plan_validity':'',
+      'id':'',
+      'plan_usage':'0'
+    }
+  ]
+  constructor(){
+    (async () => {
+      try {
+        this.vidBestPack = (await axios.get("http://localhost:8000/dongle?best=6")).data
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }
+}
+
+@Component({
+  selector: 'app-newdongleplan',
+  templateUrl: './newdongleplan.component.html',
+})
+export class NewdongleplanComponent{
+  newdplan_price:string="";
+  newdplan_data:string="";
+  newdplan_validity:string="";
+  error:string="";
+  constructor(router: ActivatedRoute){
+    router.queryParams.subscribe((params) => {return this.error = params['error']})
+  }
+  newdPlan = async () => {
+    let newdPlan = new FormData();
+    newdPlan.append('price',this.newdplan_price);
+    newdPlan.append('data',this.newdplan_data);
+    newdPlan.append('validity',this.newdplan_validity)
+    const resp = (await axios.post("http://localhost:8000/dongleplan",newdPlan));
+    window.location=resp.data;
+  }
+}
+
+
+@Component({
+  selector: 'app-viewdonglepack',
+  templateUrl: './viewdonglepack.component.html',
+})
+export class ViewdonglepackComponent{
+  DAllPack= [{
+    'plan_price':'',
+    'plan_data':'',
+    'plan_validity':'',
+    'id':'',
+    'plan_usage':''
+  }]
+  error: string="";
+  success: string="";
+  constructor(router: ActivatedRoute)
+  {
+    router.queryParams.subscribe((params) => {
+      this.error=params['error'];
+      this.success=params['success'];
+    });
+    (async () => {
+      this.DAllPack = (await axios.get('http://localhost:8000/dongle?all=True')).data
+    })()
+  }
+
+ deleteThisPack = async (e:any) => {
+    const resp = await axios.delete("http://localhost:8000/delplan?plan="+e)
+    window.location=resp.data
+  }
+}
+
+@Component({
+  selector: 'app-editdongle',
+  templateUrl: './editdongle.component.html',
+})
+export class EditdongleComponent{
+  editPack ={
+  id:"",
+  plan_price:'',
+  plan_validity:"",
+  plan_data:"",
+}
+  error:string="";
+  id:string="";
+  constructor(router: ActivatedRoute){
+    router.queryParams.subscribe((params) => {return this.error = params['error']});
+    router.queryParams.subscribe((params) => {return this.id = params['id']});
+    (async () => {
+      this.editPack=  (await axios.get('http://localhost:8000/fetch?id='+this.id)).data[0]
+    } )()
+  }
+    editdongle = async () => {
+     let editPlan = new FormData();
+     editPlan.append('price',this.editPack.plan_price);
+     editPlan.append('data',this.editPack.plan_data);
+     editPlan.append('validity',this.editPack.plan_validity)
+     editPlan.append('id',this.editPack.id)
+     const resp = (await axios.post("http://localhost:8000/edit",editPlan));
+     window.location=resp.data;
+  }
+}

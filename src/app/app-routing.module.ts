@@ -13,6 +13,10 @@ import { AdminComponent } from './admin/admin.component';
 import { ViewpackComponent } from './admin/admin.component';
 import { NewplanComponent } from './admin/admin.component';
 import { EditplanComponent } from './admin/admin.component';
+import { NewdongleplanComponent } from './admin/admin.component';
+import { ViewdonglepackComponent } from './admin/admin.component';
+import {EditdongleComponent} from './admin/admin.component';
+import{FetchfbComponent} from './feedback/feedback.component'
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
@@ -27,7 +31,11 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'admin/viewpack', component: ViewpackComponent},
   {path: 'admin/newplan', component : NewplanComponent},
-  {path: 'admin/editplan',component : EditplanComponent}
+  {path: 'admin/editplan',component : EditplanComponent},
+  {path: 'admin/newdongleplan', component : NewdongleplanComponent},
+  {path: 'admin/viewdonglepack', component: ViewdonglepackComponent},
+  {path: 'admin/editdongle',component : EditdongleComponent},
+  {path: 'feedback/fetchfb',component : FetchfbComponent},
 ]
 
 @NgModule({

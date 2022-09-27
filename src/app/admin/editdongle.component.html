@@ -15,10 +15,9 @@
                 <form action="" class="container border border-2 mt-5 p-3">
                     <h3 class="text-center alert alert-secondary">Edit Plan</h3>
                     <input class="form-control p-2 mb-2" type="text" name="price" placeholder="Price" [(ngModel)]="editPack.plan_price">
-                    <input class="form-control p-2 mb-2" type="text" name="calls" placeholder="Talktime" [(ngModel)]="editPack.plan_talktime">
                     <input class="form-control p-2 mb-2" type="text" name="Data" placeholder="Data" [(ngModel)]="editPack.plan_data">
                     <input class="form-control p-2 mb-2" type="text" name="validity"placeholder="validity" [(ngModel)]="editPack.plan_validity">
-                    <button class="btn btn-dark container" (click)="editplan()">Submit</button>
+                    <button class="btn btn-dark container" (click)="editdongle()">Submit</button>
                 </form>
             </div>
             <!-- right side -->
@@ -26,10 +25,6 @@
                 <div class="card p-3 mt-5" style="width:20rem">
                     <h3 class="text-center bg-dark text-white p-3 rounded">${{editPack.plan_price || 0}}</h3>
                     <div class="card-body row">
-                        <span class="col">
-                            <h5><b>{{editPack.plan_talktime || "nil"}}</b></h5>
-                            <p>Calls</p>
-                        </span>
                         <span class="col">
                             <h5><b>{{editPack.plan_data || 0}}GB/Day</b></h5>
                             <p>Data</p>
