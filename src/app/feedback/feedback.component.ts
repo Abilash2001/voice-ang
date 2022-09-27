@@ -31,3 +31,24 @@ addFeedback = async () => {
     }
   }
 }
+@Component({
+  selector: 'app-fetchfb',
+  templateUrl: './fetchfb.component.html',
+})
+export class FetchfbComponent{
+  viFB=[
+    {
+      'Email':'',
+      'Feedback':'',
+    }
+  ]
+  constructor(){
+    (async () => {
+      try {
+        this.viFB = (await axios.get("http://localhost:8000/Fetchfeedback")).data
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }
+}

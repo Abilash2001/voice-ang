@@ -31,7 +31,12 @@ import { NewplanComponent } from './admin/admin.component';
 import { BankComponent } from './bank/bank.component';
 import { EditplanComponent } from './admin/admin.component';
 
+import {AdmindongleComponent} from './admin/admin.component';
+import {NewdongleplanComponent} from './admin/admin.component';
+import {ViewdonglepackComponent} from './admin/admin.component';
+import {EditdongleComponent} from './admin/admin.component';
 
+import {FetchfbComponent} from './feedback/feedback.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +64,12 @@ import { EditplanComponent } from './admin/admin.component';
     ViewpackComponent,
     NewplanComponent,
     BankComponent,
-    EditplanComponent
+    EditplanComponent,
+    AdmindongleComponent,
+    NewdongleplanComponent,
+    ViewdonglepackComponent,
+    EditdongleComponent,
+    FetchfbComponent
   ],
   imports: [
     BrowserModule,
