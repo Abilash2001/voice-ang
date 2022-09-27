@@ -12,6 +12,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
   constructor(router: ActivatedRoute) {
     router.queryParams.subscribe((params) => { return this.success=params['success']})
+    if(window.sessionStorage['id']!=undefined)
+    {
+      
+    }
   }
   ngOnInit(): void {
   }
