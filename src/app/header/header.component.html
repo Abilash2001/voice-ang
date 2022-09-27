@@ -1,13 +1,12 @@
-<header class="container-fluid d-flex">
+<header class="container-fluid d-flex" *ngIf="authenticate">
     <div class="container d-flex">
         <img src="assets/brand.png" class="img-fluid" style="width:5.5rem" alt="">
         <h2 class="mt-4" onclick="window.location='/'">Voizfonica</h2>
     </div>
     <nav  class="container mt-4" style="width: 80rem;">
         <ul class="d-flex justify-content-around list-unstyled">
-            <a class="text-decoration-none" href="/new"><li><p class="text-dark">New Connection</p></li></a>
             <a class="text-decoration-none" href="/offers"><li class=""><p class="text-dark"> Offers</p></li></a>
-            <a class="text-decoration-none" href="/business"><li><p class="text-dark">Business</p></li></a>
+            <a class="text-decoration-none" href="/feedback"><li><p class="text-dark">Feedback</p></li></a>
             <a class="text-decoration-none" href="/help"><li><p class="text-dark">help</p></li></a>
             <a class="text-decoration-none" href="/signup"><li><p class="text-dark">SignUp</p></li></a>
             <a class="text-decoration-none bg-danger rounded text-center" style="width: 6.3rem;position: relative;top: -0.5rem;" href="/login"><li><h6 class="text-white pt-2">Login</h6></li></a>

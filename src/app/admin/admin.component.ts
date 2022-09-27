@@ -12,27 +12,46 @@ export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
   constructor(router: ActivatedRoute) {
     router.queryParams.subscribe((params) => { return this.success=params['success']})
-    if(window.sessionStorage['id']!=undefined)
+    if(window.sessionStorage['id']=='undefined')
     {
-
+      window.location.href="login?error=Login to access the site";
     }
   }
   ngOnInit(): void {
   }
   userChartCanvas:any;
   userChart:any;
-
+  adminPhoneNo:string="";
+  adminPassword:string="";
+  review = [{
+    'Name':'',
+    'Email':'',
+    'Feedback':''
+  }]
   ngAfterViewInit()
   {
     renderUserCountChart(this.userChartCanvas,this.userChart)
   }
+  addAccount = async () => {
+    let adminAccount = new FormData();
+    adminAccount.append('phoneNo',this.adminPhoneNo);
+    adminAccount.append('password',this.adminPassword);
+    const resp = (await axios.post("http://localhost:8000/newadmin",adminAccount)).data
+    window.location=resp
+  }
+  getReview = async (value:number) => {
+    return this.review = (await axios.get("http://localhost:8000/getReview?value="+value)).data;
+  }
 
 }
 
-function renderUserCountChart(userChartCanvas:any,userChart:any)
+async function renderUserCountChart(userChartCanvas:any,userChart:any)
 {
   userChartCanvas = document.getElementById('user')
   userChart = userChartCanvas.getContext('2d')
+  let resp:string[] = []
+  const data = (await axios.get("http://localhost:8000/usersCount")).data
+  resp = data.split("")
   new Chart(userChart,
     {
       type: 'bar',
@@ -40,7 +59,7 @@ function renderUserCountChart(userChartCanvas:any,userChart:any)
           labels: ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decembers'],
           datasets: [{
               label: 'No of Users',
-              data: [12, 19, 3, 5, 2, 3, 12, 11,  50, 43,32,21],
+              data: resp,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -109,21 +128,26 @@ export class AdminuserCategoryComponent implements AfterViewInit{
   }
 }
 
-function renderCustomerSatisfactory(userCategoryCanvaChart:any, userCategoryChart:any)
+async function renderCustomerSatisfactory(userCategoryCanvaChart:any, userCategoryChart:any)
 {
   userCategoryCanvaChart = document.getElementById('custSat');
   userCategoryChart = userCategoryCanvaChart.getContext('2d');
+  let resp:string[]=[];
+  const result = (await axios.get("http://localhost:8000/getReview?fetchCount=True")).data;
+  resp = result.split("")
   new Chart(userCategoryChart,{
     type: 'pie',
     data: {
-      labels: ['80', '90', '60'],
+      labels: ['1⭐','2⭐','3⭐','4⭐','5⭐'],
       datasets: [{
           label: 'Users Satisfaction',
-          data: [200,100,10],
+          data:resp,
           backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
               'rgba(255, 206, 86, 0.2)',
+              'rgba(229, 123, 234, 0.2)',
+              'rgba(10, 262, 235, 0.2)'
           ],
           borderColor: [
               'rgba(255, 99, 132, 1)',
@@ -163,17 +187,24 @@ function renderTIcketCategoryChart(userCategoryCanvaChart:any,userCategoryChart:
   })
 }
 
-function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryChart:any)
+async function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryChart:any)
 {
   userCategoryCanvaChart = document.getElementById('userCat');
+  let resp:string[]=[]
   userCategoryChart = userCategoryCanvaChart.getContext('2d');
+  try {
+    const result:string = (await axios.get("http://localhost:8000/fetchCat")).data;
+    resp = result.toString().split("")
+  } catch (error) {
+    console.log(error)
+  }
   new Chart(userCategoryChart,{
     type: 'pie',
     data: {
       labels: ['Prepaid', 'Postpaid', 'Dongle'],
       datasets: [{
           label: 'Users Types',
-          data: [200,100,10],
+          data: resp,
           backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -194,7 +225,9 @@ function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryChart:an
   selector: 'app-adminheader',
   templateUrl: './adminheader.component.html',
 })
-export class AdminheaderComponent{}
+export class AdminheaderComponent{
+ logout = ()=>{window.sessionStorage['id']=undefined} 
+}
 
 @Component({
   selector: 'app-viewpack',
