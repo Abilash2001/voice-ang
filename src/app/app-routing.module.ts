@@ -16,7 +16,9 @@ import { EditplanComponent } from './admin/admin.component';
 import { NewdongleplanComponent } from './admin/admin.component';
 import { ViewdonglepackComponent } from './admin/admin.component';
 import {EditdongleComponent} from './admin/admin.component';
-import{FetchfbComponent} from './feedback/feedback.component'
+import{FetchfbComponent} from './feedback/feedback.component';
+import {PrivacyComponent} from './privacy/privacy.component';
+import {TermsComponent} from './terms/terms.component';
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path: 'admin/viewdonglepack', component: ViewdonglepackComponent},
   {path: 'admin/editdongle',component : EditdongleComponent},
   {path: 'feedback/fetchfb',component : FetchfbComponent},
+  {path:'privacy',component:PrivacyComponent},
+  {path:'terms',component:TermsComponent},
 ]
 
 @NgModule({

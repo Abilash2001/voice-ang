@@ -21,7 +21,7 @@
                 </form>
             </div>
             <!-- right side -->
-            <div class="col-3">
+            <!--div class="col-3">
                 <div class="card p-3 mt-5" style="width:20rem">
                     <h3 class="text-center bg-dark text-white p-3 rounded">${{editPack.plan_price || 0}}</h3>
                     <div class="card-body row">
@@ -38,7 +38,25 @@
                         <button  class="btn btn-danger container">Buy Pack</button>
                     </div>
                 </div>
-            </div>
+            </div-->
+          <div class="col-3">
+            <div class="card p-2 mt-5 "  style="width:15rem">
+              <img src="assets/img6.PNG" style="width:20 rem">
+              <div class="container alert alert-danger">
+              <div class="container ">
+              <h3>${{editPack.plan_price || 0}}</h3>
+                </div>
+              <div class="container">
+              <h5><b>{{editPack.plan_data || 0}}GB/Day</b></h5>
+              <p>Data</p>
+                </div>
+              <div class="container">
+              <h5><b>{{editPack.plan_validity || 0}}Days</b></h5>
+              <p>Validity</p>
+                </div>
+              </div>
+          </div>
+        </div>
         </div>
     </section>
 
