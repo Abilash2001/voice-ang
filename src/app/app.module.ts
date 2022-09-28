@@ -37,6 +37,8 @@ import {ViewdonglepackComponent} from './admin/admin.component';
 import {EditdongleComponent} from './admin/admin.component';
 
 import {FetchfbComponent} from './feedback/feedback.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,9 @@ import {FetchfbComponent} from './feedback/feedback.component';
     NewdongleplanComponent,
     ViewdonglepackComponent,
     EditdongleComponent,
-    FetchfbComponent
+    FetchfbComponent,
+    PrivacyComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
