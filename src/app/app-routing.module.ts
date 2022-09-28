@@ -15,10 +15,12 @@ import { NewplanComponent } from './admin/admin.component';
 import { EditplanComponent } from './admin/admin.component';
 import { NewdongleplanComponent } from './admin/admin.component';
 import { ViewdonglepackComponent } from './admin/admin.component';
-import {EditdongleComponent} from './admin/admin.component';
-import{FetchfbComponent} from './feedback/feedback.component';
-import {PrivacyComponent} from './privacy/privacy.component';
-import {TermsComponent} from './terms/terms.component';
+import { EditdongleComponent} from './admin/admin.component';
+import { FetchfbComponent } from './feedback/feedback.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
+import { SubscriberComponent } from './subscriber/subscriber.component';
+
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
@@ -40,6 +42,7 @@ const routes: Routes = [
   {path: 'feedback/fetchfb',component : FetchfbComponent},
   {path:'privacy',component:PrivacyComponent},
   {path:'terms',component:TermsComponent},
+  {path: 'connection', component: SubscriberComponent}
 ]
 
 @NgModule({

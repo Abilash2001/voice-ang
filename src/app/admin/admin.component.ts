@@ -10,7 +10,7 @@ import { Chart } from 'chart.js';
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
-  checked:boolean=true;
+  checked:boolean=false;
   constructor(router: ActivatedRoute) {
     let isAdmin:string="";
     router.queryParams.subscribe((params) => { return this.success=params['success']});
