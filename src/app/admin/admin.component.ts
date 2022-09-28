@@ -10,15 +10,34 @@ import { Chart } from 'chart.js';
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
+  checked:boolean=true;
   constructor(router: ActivatedRoute) {
-    router.queryParams.subscribe((params) => { return this.success=params['success']})
-    if(window.sessionStorage['id']=='undefined')
+    let isAdmin:string="";
+    router.queryParams.subscribe((params) => { return this.success=params['success']});
+    if(window.sessionStorage['id']!='undefined')
     {
-      window.location.href="login?error=Login to access the site";
-    }
+      (async () => {
+          isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?sid="+window.sessionStorage['id'])).data
+          if(isAdmin=="home")
+          {
+            window.location.href="login?error=Login to access the site";
+            window.sessionStorage['id']='undefined';
+            this.checked=true;
+          }else if(isAdmin=="checkadmin"){
+            isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
+            if(isAdmin == 'admin'){
+              this.checked=true;
+            }
+          }
+    })()
+  }else{
+    window.location.href="home"
   }
+  }
+  
   ngOnInit(): void {
   }
+  
   userChartCanvas:any;
   userChart:any;
   adminPhoneNo:string="";
@@ -134,7 +153,7 @@ async function renderCustomerSatisfactory(userCategoryCanvaChart:any, userCatego
   userCategoryChart = userCategoryCanvaChart.getContext('2d');
   let resp:string[]=[];
   const result = (await axios.get("http://localhost:8000/getReview?fetchCount=True")).data;
-  resp = result.split("")
+  resp = result.toString().split("")
   new Chart(userCategoryChart,{
     type: 'pie',
     data: {

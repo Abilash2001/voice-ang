@@ -3,7 +3,7 @@
 <head>
     <app-meta></app-meta>
 </head>
-<body>
+<body *ngIf="checked">
     <app-adminheader></app-adminheader>
     <div class="alert alert-success" *ngIf="success">
         {{success}}
