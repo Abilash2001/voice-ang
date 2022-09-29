@@ -25,6 +25,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
             this.checked=true;
           }else if(isAdmin=="checkadmin"){
             isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
+            console.log(isAdmin)
             if(isAdmin == 'admin'){
               this.checked=true;
             }
@@ -34,10 +35,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
     window.location.href="home"
   }
   }
-  
+
   ngOnInit(): void {
   }
-  
+
   userChartCanvas:any;
   userChart:any;
   adminPhoneNo:string="";
@@ -245,7 +246,7 @@ async function renderUserCategoryChart(userCategoryCanvaChart:any,userCategoryCh
   templateUrl: './adminheader.component.html',
 })
 export class AdminheaderComponent{
- logout = ()=>{window.sessionStorage['id']=undefined} 
+ logout = ()=>{window.sessionStorage['id']=undefined}
 }
 
 @Component({

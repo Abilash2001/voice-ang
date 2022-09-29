@@ -3,7 +3,7 @@
 <head>
     <app-meta></app-meta>
 </head>
-<body *ngIf="checked">
+<body>
     <app-adminheader></app-adminheader>
     <div class="alert alert-success" *ngIf="success">
         {{success}}
@@ -16,8 +16,8 @@
     <app-adminuserCategory></app-adminuserCategory>
     <app-adminpack></app-adminpack>
     <app-admindongle></app-admindongle>
-    
-    
+
+
     <section class="container border p-3">
         <div class="container">
             <h3 class="alert alert-secondary"><b>Admin Account</b></h3>
@@ -52,11 +52,10 @@
                         <p><b>{{i.Feedback || "unknown"}}</b></p>
                     </div>
                         <a href="mailto:{{i.Email}}" style="width: 100%;"><button class="container btn btn-danger">Email</button></a>
-                    </div>                
+                    </div>
             </div>
         </div>
     </section>
-    
     <app-footer></app-footer>
 </body>
 </html>
