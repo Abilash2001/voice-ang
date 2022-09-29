@@ -27,19 +27,16 @@ import { AdminheaderComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ViewpackComponent } from './admin/admin.component';
 import { NewplanComponent } from './admin/admin.component';
-
 import { BankComponent } from './bank/bank.component';
 import { EditplanComponent } from './admin/admin.component';
-
 import {AdmindongleComponent} from './admin/admin.component';
 import {NewdongleplanComponent} from './admin/admin.component';
 import {ViewdonglepackComponent} from './admin/admin.component';
 import {EditdongleComponent} from './admin/admin.component';
-
 import {FetchfbComponent} from './feedback/feedback.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
-import { ChooseplanComponent } from './chooseplan/chooseplan.component';
+import { SuccessfulComponent } from './subscriber/subscriber.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +72,7 @@ import { ChooseplanComponent } from './chooseplan/chooseplan.component';
     FetchfbComponent,
     PrivacyComponent,
     TermsComponent,
-    ChooseplanComponent
+    SuccessfulComponent
   ],
   imports: [
     BrowserModule,

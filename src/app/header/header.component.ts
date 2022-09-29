@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  authenticate:string = window.sessionStorage['id']
-  constructor() { }
+  authenticate:boolean = false;
+  constructor() { 
+    if( window.sessionStorage['id'] != 'undefined' && window.sessionStorage['id']!=undefined){
+      this.authenticate=true
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  Logout = () => {
+    window.sessionStorage.removeItem('id');
+    this.authenticate=false;
+    window.location.href="login"
+}
 }

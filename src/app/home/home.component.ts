@@ -12,4 +12,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setTypePrepaid = () => { 
+    window.sessionStorage['cat']='p';
+    window.location.href="connection";
+   }
+  setTypePostpaid = () => {
+    window.sessionStorage['cat']='P';
+    window.location.href="connection";
+  }
+  
 }

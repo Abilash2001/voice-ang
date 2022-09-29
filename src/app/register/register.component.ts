@@ -16,6 +16,9 @@ export class RegisterComponent implements OnInit {
   constructor(router: ActivatedRoute) { 
 
     router.queryParams.subscribe((params) => {return this.error = params['error']})
+    if(window.sessionStorage['genPhone']!='undefined'){
+      this.phone=window.sessionStorage['genPhone']
+    }
   }
 
   ngOnInit(): void {
@@ -25,14 +28,15 @@ export class RegisterComponent implements OnInit {
     try
     {
         let newForm = new FormData()
-        newForm.append('name',this.name)
-        newForm.append('email',this.email)
-        newForm.append('phone',this.phone)
-        newForm.append('password',this.password)
-        
+        newForm.append('name',this.name);
+        newForm.append('email',this.email);
+        newForm.append('phone',this.phone);
+        newForm.append('password',this.password);
+        newForm.append('usercat',window.sessionStorage['cat']);
         const resp = (await axios.post("http://localhost:8000/sign",newForm)).data
         if(resp.authenticate == true){
             window.sessionStorage["id"]=resp.id
+            window.sessionStorage.removeItem('genPhone')
         }
         window.location=resp.location;
     }catch(e)

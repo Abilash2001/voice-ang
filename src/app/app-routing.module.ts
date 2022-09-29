@@ -20,7 +20,10 @@ import { FetchfbComponent } from './feedback/feedback.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { SubscriberComponent } from './subscriber/subscriber.component';
-import {ChooseplanComponent} from './chooseplan/chooseplan.component';
+import { SuccessfulComponent } from './subscriber/subscriber.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+
+
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
@@ -28,7 +31,7 @@ const routes: Routes = [
   {path:'signup', component : RegisterComponent},
   {path:'otp', component : OtpComponent},
   {path:'aboutus', component : AboutusComponent},
-  {path:'bank', component: BankComponent},
+  {path:'connection/bank', component: BankComponent},
   {path:'dongle', component: DongleComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'offers', component: OffersComponent},
@@ -40,10 +43,11 @@ const routes: Routes = [
   {path: 'admin/viewdonglepack', component: ViewdonglepackComponent},
   {path: 'admin/editdongle',component : EditdongleComponent},
   {path: 'feedback/fetchfb',component : FetchfbComponent},
-  {path:'privacy',component:PrivacyComponent},
-  {path:'terms',component:TermsComponent},
+  {path: 'privacy',component:PrivacyComponent},
+  {path: 'terms',component:TermsComponent},
   {path: 'connection', component: SubscriberComponent},
-  {path:'chooseplan',component:ChooseplanComponent},
+  {path: 'connection/successful', component: SuccessfulComponent},
+  {path: 'invoice', component: InvoiceComponent}
 ]
 
 @NgModule({

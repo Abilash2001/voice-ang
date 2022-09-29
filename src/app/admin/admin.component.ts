@@ -23,12 +23,17 @@ export class AdminComponent implements OnInit, AfterViewInit {
             window.location.href="login?error=Login to access the site";
             window.sessionStorage['id']='undefined';
             this.checked=true;
-          }else if(isAdmin=="checkadmin"){
+          }
+          else if(isAdmin=="checkadmin"){
             isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
             console.log(isAdmin)
             if(isAdmin == 'admin'){
               this.checked=true;
+            }else{
+              window.location.href="home"
             }
+          }else if(isAdmin=="admin"){
+            this.checked=true;
           }
     })()
   }else{
@@ -71,7 +76,7 @@ async function renderUserCountChart(userChartCanvas:any,userChart:any)
   userChart = userChartCanvas.getContext('2d')
   let resp:string[] = []
   const data = (await axios.get("http://localhost:8000/usersCount")).data
-  resp = data.split("")
+  resp = data.toString().split("")
   new Chart(userChart,
     {
       type: 'bar',
