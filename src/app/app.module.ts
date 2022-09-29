@@ -39,6 +39,7 @@ import {EditdongleComponent} from './admin/admin.component';
 import {FetchfbComponent} from './feedback/feedback.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
+import { ChooseplanComponent } from './chooseplan/chooseplan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,8 @@ import { TermsComponent } from './terms/terms.component';
     EditdongleComponent,
     FetchfbComponent,
     PrivacyComponent,
-    TermsComponent
+    TermsComponent,
+    ChooseplanComponent
   ],
   imports: [
     BrowserModule,

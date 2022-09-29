@@ -20,7 +20,7 @@ import { FetchfbComponent } from './feedback/feedback.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { SubscriberComponent } from './subscriber/subscriber.component';
-
+import {ChooseplanComponent} from './chooseplan/chooseplan.component';
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
@@ -42,7 +42,8 @@ const routes: Routes = [
   {path: 'feedback/fetchfb',component : FetchfbComponent},
   {path:'privacy',component:PrivacyComponent},
   {path:'terms',component:TermsComponent},
-  {path: 'connection', component: SubscriberComponent}
+  {path: 'connection', component: SubscriberComponent},
+  {path:'chooseplan',component:ChooseplanComponent},
 ]
 
 @NgModule({
