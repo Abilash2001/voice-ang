@@ -37,6 +37,13 @@ import {FetchfbComponent} from './feedback/feedback.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { SuccessfulComponent } from './subscriber/subscriber.component';
+
+import {AdminpostpaidComponent} from './admin/admin.component';
+import {NewpostpaidComponent} from './admin/admin.component';
+import {ViewpostpaidComponent} from './admin/admin.component';
+import {EditpostpaidComponent} from './admin/admin.component';
+import { PostpaidComponent } from './postpaid/postpaid.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +79,12 @@ import { SuccessfulComponent } from './subscriber/subscriber.component';
     FetchfbComponent,
     PrivacyComponent,
     TermsComponent,
-    SuccessfulComponent
+    SuccessfulComponent,
+    AdminpostpaidComponent,
+    NewpostpaidComponent,
+    ViewpostpaidComponent,
+    EditpostpaidComponent,
+    PostpaidComponent
   ],
   imports: [
     BrowserModule,
