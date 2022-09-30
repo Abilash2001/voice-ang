@@ -10,32 +10,32 @@ import { Chart } from 'chart.js';
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
-  checked:boolean=false;
+  checked:boolean=true;
   constructor(router: ActivatedRoute) {
     let isAdmin:string="";
     router.queryParams.subscribe((params) => { return this.success=params['success']});
     if(window.sessionStorage['id']!='undefined')
     {
-      (async () => {
-          isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?sid="+window.sessionStorage['id'])).data
-          if(isAdmin=="home")
-          {
-            window.location.href="login?error=Login to access the site";
-            window.sessionStorage['id']='undefined';
-            this.checked=true;
-          }
-          else if(isAdmin=="checkadmin"){
-            isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
-            console.log(isAdmin)
-            if(isAdmin == 'admin'){
-              this.checked=true;
-            }else{
-              window.location.href="home"
-            }
-          }else if(isAdmin=="admin"){
-            this.checked=true;
-          }
-    })()
+//       (async () => {
+//           isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?sid="+window.sessionStorage['id'])).data
+//           if(isAdmin=="home")
+//           {
+//             window.location.href="login?error=Login to access the site";
+//             window.sessionStorage['id']='undefined';
+//             this.checked=true;
+//           }
+//           else if(isAdmin=="checkadmin"){
+//             isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
+//             console.log(isAdmin)
+//             if(isAdmin == 'admin'){
+//               this.checked=true;
+//             }else{
+//               window.location.href="home"
+//             }
+//           }else if(isAdmin=="admin"){
+//             this.checked=true;
+//           }
+//     })()
   }else{
     window.location.href="home"
   }
@@ -454,3 +454,115 @@ export class EditdongleComponent{
      window.location=resp.data;
   }
 }
+
+
+@Component({
+  selector: 'app-adminpostpaid',
+  templateUrl: './adminpostpaid.component.html',
+})
+export class AdminpostpaidComponent{
+  viBestPack=[
+    {
+      'plan_price':'',
+      'plan_talktime':'',
+      'plan_data':'',
+      'id':'',
+      'plan_usage':'0'
+    }
+  ]
+  constructor(){
+    (async () => {
+      try {
+        this.viBestPack = (await axios.get("http://localhost:8000/postplan?best=6")).data
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }
+}
+
+@Component({
+  selector: 'app-newpostpaid',
+  templateUrl: './newpostpaid.component.html',
+})
+export class NewpostpaidComponent{
+  newplan_price:string="";
+  newplan_talktime:string="";
+  newplan_data:string="";
+  error:string="";
+  constructor(router: ActivatedRoute){
+    router.queryParams.subscribe((params) => {return this.error = params['error']})
+  }
+  newPlan = async () => {
+    let newPlan = new FormData();
+    newPlan.append('price',this.newplan_price);
+    newPlan.append('talktime',this.newplan_talktime);
+    newPlan.append('data',this.newplan_data);
+    const resp = (await axios.post("http://localhost:8000/newpost" ,newPlan));
+    window.location=resp.data;
+  }
+}
+
+@Component({
+  selector: 'app-viewpostpaid',
+  templateUrl: './viewpostpaid.component.html',
+})
+export class ViewpostpaidComponent{
+  viAllPack= [{
+   'plan_price':'',
+    'plan_talktime':'',
+    'plan_data':'',
+    'id':'',
+    'plan_usage':''
+  }]
+  error: string="";
+  success: string="";
+  constructor(router: ActivatedRoute)
+  {
+    router.queryParams.subscribe((params) => {
+      this.error=params['error'];
+      this.success=params['success'];
+    });
+    (async () => {
+      this.viAllPack = (await axios.get('http://localhost:8000/postplan?all=True')).data
+    })()
+  }
+
+ deleteThisPack = async (e:any) => {
+    const resp = await axios.delete("http://localhost:8000/dltplan?plan="+e)
+    window.location=resp.data
+  }
+}
+
+
+@Component({
+  selector: 'app-editpostpaid',
+  templateUrl: './editpostpaid.component.html',
+})
+export class EditpostpaidComponent{
+  editPack ={
+  id:"",
+  plan_price:'',
+  plan_talktime :"",
+  plan_data:"",
+}
+  error:string="";
+  id:string="";
+  constructor(router: ActivatedRoute){
+    router.queryParams.subscribe((params) => {return this.error = params['error']});
+    router.queryParams.subscribe((params) => {return this.id = params['id']});
+    (async () => {
+      this.editPack=  (await axios.get('http://localhost:8000/fetchpostplan?id='+this.id)).data[0]
+    } )()
+  }
+    editplan = async () => {
+     let editPlan = new FormData();
+     editPlan.append('price',this.editPack.plan_price);
+     editPlan.append('talktime',this.editPack.plan_talktime);
+     editPlan.append('data',this.editPack.plan_data);
+     editPlan.append('id',this.editPack.id)
+     const resp = (await axios.post("http://localhost:8000/editpostplan",editPlan));
+     window.location=resp.data;
+  }
+}
+
