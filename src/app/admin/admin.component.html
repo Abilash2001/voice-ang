@@ -37,11 +37,11 @@
         <div class="container">
             <h3 class="alert alert-secondary"><b>Reviews</b></h3>
             <div class="container d-flex justify-content-center">
-                <button class="btn btn-danger container" (click)="getReview(1)" >Very Bad</button>
-                <button class="btn text-white container ms-3" style="background-color: orangered;" (click)="getReview(2)">Bad</button>
+                <button class="btn btn-danger container" (click)="getReview(5)" >Very Bad</button>
+                <button class="btn text-white container ms-3" style="background-color: orangered;" (click)="getReview(4)">Bad</button>
                 <button class="btn btn-warning container ms-3" (click)="getReview(3)">Average</button>
-                <button class="btn btn-success container ms-3" (click)="getReview(4)">Good</button>
-                <button class="btn container ms-3 text-white" style="background-color: darkgreen;" (click)="getReview(5)">Excellent</button>
+                <button class="btn btn-success container ms-3" (click)="getReview(2)">Good</button>
+                <button class="btn container ms-3 text-white" style="background-color: darkgreen;" (click)="getReview(1)">Excellent</button>
             </div>
             <div class="container row d-flex justify-content-around">
                 <div class="card mt-3 col-3" style="width: 25rem;"  *ngFor="let i of review">

@@ -55,7 +55,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }]
   ngAfterViewInit()
   {
-    renderUserCountChart(this.userChartCanvas,this.userChart)
+    renderUserCountChart(this.userChartCanvas,this.userChart);
   }
   addAccount = async () => {
     let adminAccount = new FormData();
@@ -73,10 +73,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
 async function renderUserCountChart(userChartCanvas:any,userChart:any)
 {
   userChartCanvas = document.getElementById('user')
-  userChart = userChartCanvas.getContext('2d')
-  let resp:string[] = []
-  const data = (await axios.get("http://localhost:8000/usersCount")).data
-  resp = data.toString().split("")
+  userChart = userChartCanvas.getContext('2d');
+  const output = (await axios.get("http://localhost:8000/usersCount")).data
+  let resp = output.toString().split("")
   new Chart(userChart,
     {
       type: 'bar',
@@ -146,7 +145,10 @@ export class AdminpackComponent{
 export class AdminuserCategoryComponent implements AfterViewInit{
   userCategoryChartCanva:any;
   userCategoryChart:any;
+  userChartCanvas:any;
+  userChart:any;
   ngAfterViewInit(): void {
+      renderUserCountChart(this.userChartCanvas,this.userChart);
       renderUserCategoryChart(this.userCategoryChartCanva,this.userCategoryChart);
       renderTIcketCategoryChart(this.userCategoryChartCanva,this.userCategoryChart);
       renderCustomerSatisfactory(this.userCategoryChartCanva,this.userCategoryChart);
