@@ -8,6 +8,13 @@
     <span>
         <h5 class="text-center text-white p-2 bg-danger">Experience the new Voizfonica app!!! <u class="ms-4">Download Now</u></h5>
     </span>
+
+    <div class="alert alert-danger" *ngIf="error">
+      {{error}}
+    </div>
+    <div class="alert alert-success" *ngIf="success">
+      {{success}}
+    </div>
     <app-bills></app-bills>
 
 

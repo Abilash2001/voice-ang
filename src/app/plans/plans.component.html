@@ -18,7 +18,7 @@
           <h6 class="col"><b>{{i.plan_validity || 0}}Days</b></h6>
           <p>Validity</p>
         </span>
-        <button class="btn btn-danger">Recharge</button>
+        <button class="btn btn-danger" (click)="recharge({'id':i.id,'price':i.plan_price})">Recharge</button>
       </div>  
     </div>
   </div>
