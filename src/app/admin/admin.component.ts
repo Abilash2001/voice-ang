@@ -10,32 +10,32 @@ import { Chart } from 'chart.js';
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
-  checked:boolean=true;
+  checked:boolean=false;
   constructor(router: ActivatedRoute) {
     let isAdmin:string="";
     router.queryParams.subscribe((params) => { return this.success=params['success']});
     if(window.sessionStorage['id']!='undefined')
     {
-//       (async () => {
-//           isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?sid="+window.sessionStorage['id'])).data
-//           if(isAdmin=="home")
-//           {
-//             window.location.href="login?error=Login to access the site";
-//             window.sessionStorage['id']='undefined';
-//             this.checked=true;
-//           }
-//           else if(isAdmin=="checkadmin"){
-//             isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
-//             console.log(isAdmin)
-//             if(isAdmin == 'admin'){
-//               this.checked=true;
-//             }else{
-//               window.location.href="home"
-//             }
-//           }else if(isAdmin=="admin"){
-//             this.checked=true;
-//           }
-//     })()
+      (async () => {
+           isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?sid="+window.sessionStorage['id'])).data
+           if(isAdmin=="home")
+           {
+             window.location.href="login?error=Login to access the site";
+             window.sessionStorage['id']='undefined';
+             this.checked=true;
+           }
+           else if(isAdmin=="checkadmin"){
+             isAdmin = (await axios.get("http://localhost:8000/fetchAdmin?said="+window.sessionStorage['id'])).data;
+             console.log(isAdmin)
+             if(isAdmin == 'admin'){
+              this.checked=true;
+             }else{
+               window.location.href="home"
+             }
+          }else if(isAdmin=="admin"){
+             this.checked=true;
+           }
+     })()
   }else{
     window.location.href="home"
   }
