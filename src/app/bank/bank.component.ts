@@ -14,7 +14,10 @@ export class BankComponent implements OnInit {
     
     router.queryParams.subscribe((params) => { 
       if(params['plan']){
-        this.locate = "home?success= The plan was recharged successfully";
+        this.locate = "invoice?plan=True";
+      }
+      if(params['dongle']){
+        this.locate = "invoice?dongle=True"
       }
     })
    }

@@ -15,7 +15,7 @@
         </span>
         <hr>
     </header>
-    <section class="row container">
+    <!-- <section class="row container">
         <span class="col-4 border border-2 p-3" style="margin-left: 10rem;">
             <h3 class="alert alert-danger">BILL TO</h3><hr>
             <h5>Bobbili Raja Salai, k.k.nagar, chennai-78</h5>
@@ -33,7 +33,7 @@
                 </span>
             </div>
         </span>
-    </section>
+    </section> -->
     <section class="container mt-5">
         <h3 class="alert alert-danger row">
             <span class="col-8">
@@ -48,16 +48,32 @@
                 </span>
             </span>
         </h3>
-        <div class="container border border-2 p-3 row mb-3">
+        <div class="container border border-2 p-3 row mb-3" *ngIf="sim">
             <h3 class="col-8"><i>Sim Card</i></h3>
             <h3 class="col">1</h3>
-            <h3 class="col">$50</h3><hr>
+            <h3 class="col">$90</h3><hr>
 
 
 
-            <h3 class="col-8"><i>Delivery Charges</i></h3>
+            <!-- <h3 class="col-8"><i>Delivery Charges</i></h3>
             <h3 class="col">-</h3>
-            <h3 class="col">$40</h3><hr>
+            <h3 class="col">$40</h3><hr> -->
+
+
+            <h3 class="col-8"><i>Tax</i></h3>
+            <h3 class="col">-</h3>
+            <h3 class="col">$10</h3><hr>
+        </div>
+        <div class="container border border-2 p-3 row mb-3" *ngIf="plan">
+            <h3 class="col-8"><i>Plan</i></h3>
+            <h3 class="col">1</h3>
+            <h3 class="col">${{beforeTax}}</h3><hr>
+
+
+
+            <!-- <h3 class="col-8"><i>Delivery Charges</i></h3>
+            <h3 class="col">-</h3>
+            <h3 class="col">$40</h3><hr> -->
 
 
             <h3 class="col-8"><i>Tax</i></h3>
@@ -66,7 +82,8 @@
         </div>
         <div class="container alert alert-success row">
             <h1 class="col-10">Total</h1>
-            <h2 class="col">$100</h2>
+            <h2 class="col" *ngIf="sim">$100</h2>
+            <h2 class="col" *ngIf="plan">${{price}}</h2>
         </div> 
 
         <div class="text-center mt-5">

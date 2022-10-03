@@ -161,7 +161,7 @@ async function renderCustomerSatisfactory(userCategoryCanvaChart:any, userCatego
   userCategoryChart = userCategoryCanvaChart.getContext('2d');
   let resp:string[]=[];
   const result = (await axios.get("http://localhost:8000/getReview?fetchCount=True")).data;
-  resp = result.toString().split("")
+  resp = result.toString().split("").reverse()
   new Chart(userCategoryChart,{
     type: 'pie',
     data: {

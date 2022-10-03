@@ -25,7 +25,24 @@ export class DongleComponent implements OnInit {
     (async () => {
       this.DAllPack = (await axios.get('http://localhost:8000/dongle?all=True')).data
     })() }
-
+    recharge = async (planObject:any) => {
+      if(window.sessionStorage['id'] == 'undefined' || window.sessionStorage['id'] == undefined)
+      {
+        window.location.href="login?error=Please login to recharge or pay bills";
+      }else{
+        let newRecharge = new FormData()
+        newRecharge.append('id',window.sessionStorage['id'])
+        newRecharge.append('pid',planObject.id)
+        const resp = (await axios.post("http://localhost:8000/recharge",newRecharge)).data
+        if(resp=="connection/bank?dongle=True"){
+          console.log(planObject.price)
+          window.sessionStorage['price']=planObject.price;
+          window.sessionStorage['cat']='d';
+        }
+  
+        window.location.href=resp;
+      }
+    }
   ngOnInit(): void {
   }
 

@@ -30,12 +30,12 @@
                             <h5><b>{{i.plan_validity}}Days</b></h5>
                             <p>Validity</p>
                         </span>
-                        <span class="col">
+                        <!-- <span class="col">
                             <h5><b>{{i.plan_usage}}</b></h5>
                             <p>Users</p>
-                        </span>
+                        </span> -->
                     </div>
-                  <a  class="text-decoration-none text-white" href="/admin/editdongle?id={{i.id}}"><button id="{{i.id}}" class="btn btn-danger container">Edit Pack</button></a>
+                    <button class="btn btn-danger" (click)="recharge({'id':i.id,'price':i.plan_price})">Buy Dongle</button>
 
                 </div>
             </div>
