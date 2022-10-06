@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <app-meta></app-meta>
+</head>
+<body>
+    <app-header></app-header>
+    <section class="container border border-3 p-3">
+        <h1 class="text-center alert alert-secondary">Voiz Chat</h1>
+        <div class="container border border-1 p-1 rounded" style="height:22rem;overflow-y: scroll;background-image: url('assets/chatbanner.png');">
+            <div class="container p-2 mt-3" id="chatbody">
+                <span><p class="alert alert-danger" style="width: 30%;"> Hey! I'm Voiz, Your personal Voizfonica assistant.
+                    <span class="d-flex justify-content-end mt-1">{{getTime()}}</span></p></span>
+                <span>
+                    <p class="alert alert-danger" style="width: 30%;"> What would you like to explore today?
+                        <button class="btn btn-dark mt-2" onclick="window.location='prepaid'">Prepaid</button>
+                        <button class="btn btn-dark ms-1 mt-2" onclick="window.location='postpaid'">PostPaid</button>
+                        <button class="btn btn-dark ms-1 mt-2" onclick="window.location='dongle'">Dongle</button>
+                        <button class="btn btn-dark ms-1 mt-2" onclick="window.location='connection'">Join Voizfonica Family</button>
+                        <button class="btn btn-dark ms-1 mt-2">Others</button>
+                    <span class="d-flex justify-content-end mt-1">{{getTime()}}</span>
+                    </p>
+                </span>
+                
+                <!-- <span class="d-flex justify-content-end">
+                    <p class="alert alert-primary" style="width: 30%;">Hello how are you
+                        <span class="d-flex justify-content-end mt-1">{{getTime()}}</span>
+                    </p>
+                </span> -->
+            </div>
+        </div>
+        <form class="d-flex">
+            <input class="form-control" type="text" name="chat" id="" placeholder="Chat here..." [(ngModel)]="message">
+            <button class="btn btn-danger" (click)="addChat()">Send</button>
+        </form>
+    </section>
+    <!-- <app-footer></app-footer> -->
+</body>
+</html>
