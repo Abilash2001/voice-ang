@@ -53,12 +53,12 @@ const routes: Routes = [
   {path: 'connection', component: SubscriberComponent},
   {path: 'connection/successful', component: SuccessfulComponent},
   {path: 'invoice', component: InvoiceComponent},
-  {path: 'admin/newpostpaid',component : NewpostpaidComponent},
-  {path: 'admin/editpostpaid',component : EditpostpaidComponent},
-  {path: 'admin/viewpostpaid',component : ViewpostpaidComponent},
-  {path:'postpaid',component:PostpaidComponent},
-  {path: 'help',component: HelpmeComponent},
-{path:'query',component:QueryComponent}
+  {path: 'admin/newpostpaid', component : NewpostpaidComponent},
+  {path: 'admin/editpostpaid', component : EditpostpaidComponent},
+  {path: 'admin/viewpostpaid', component : ViewpostpaidComponent},
+  {path:'postpaid', component:PostpaidComponent},
+  {path: 'help', component: HelpmeComponent},
+  {path:'query', component:QueryComponent}
 
 
 ]

@@ -5,18 +5,24 @@
 </head>
 <body>
     <app-header></app-header>
+    <div class="alert alert-danger" *ngIf="error">
+      {{error}}
+    </div>
+    <div class="alert alert-success" *ngIf="success">
+      {{success}}
+    </div>
     <div class="container mt-5" style="width: 50rem;">
   <h3 style="text-align:center">Query</h3>
-<div class="d-flex justify-content-center mt-5">
+  <div class="d-flex justify-content-center mt-5">
   <form style="width: 30rem" class="container border border-5 p-3">
-    <div>
-      <input type="tel" name="mobile_no" placeholder="Mobile Number" class="form-control" [(ngModel)]="mobile_no" ><br>
-      <input class="form-control" type="text" name="Email" placeholder="Enter Email" [(ngModel)]="Email" >
+      <div>
+        <input type="tel" name="mobile_no" placeholder="Mobile Number" class="form-control" [(ngModel)]="mobile_no" ><br>
+        <input class="form-control" type="text" name="Email" placeholder="Enter Email" [(ngModel)]="Email" >
       </div>
 
-<div>
-          <fieldset class="container ms-1 mt-3 mb-3 border border-2" >
-            <p>Please select the category</p>
+  <div>
+        <fieldset class="container ms-1 mt-3 mb-3 border border-2" >
+        <p>Please select the category</p>
         <input type="radio" name="a" id="q1" [value]="1" [(ngModel)]="a" />
         <label for="q1">Network issue</label><br>
         <input type="radio" name="a" id="q2"  [value]="2"  [(ngModel)]="a" />

@@ -5,17 +5,16 @@
 </head>
 <body>
     <app-header></app-header>
+    <span class="d-flex justify-content-center">
+        <h3><b>Query</b></h3>
+    </span>
 
-            <span class="d-flex justify-content-center">
-                <h3><b>Query</b></h3>
-            </span>
-
-            <div class="container">
-                    <div class="container" style="width:50rem" *ngFor="let i of viQ">
-                      <div class="container-fluid bg-danger text-white p-3 rounded mt-3 mb-3">
-                        <p class="text">{{i.Query}}</p></div>
-                    </div>
-                </div>
+    <div class="container">
+            <div class="container" style="width:50rem" *ngFor="let i of viQ">
+              <div class="container-fluid bg-danger text-white p-3 rounded mt-3 mb-3">
+                <p class="text">{{i.Query}}</p></div>
+            </div>
+        </div>
 
 <span class="d-flex justify-content-center">
 <a style="text-decoration:none;border: none;outline: 0;padding: 12px;text-align: center;cursor: pointer;width: 24%;font-size: 18px;color:white;background-color:#000" href="#query" routerLink="/query">Query</a>

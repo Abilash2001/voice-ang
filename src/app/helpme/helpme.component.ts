@@ -85,9 +85,21 @@ function removeUnwantedWords(message: string): string
     "WOULD","YES","YET","YOU","YOUR","IT","?","@","!","$","%","^","&","*","(",")","[","]","+","-","\\",";",":",".",
     "/","~"
   ]
-  let filterMessage: string[] =[];
+  let filterMessage: string[] = []
+  let position: string[] = []
   for(let i of message.split(" ")){
-    
+    for(let j of stopWords){
+      if(i == j){
+        position.push(j)
+      }
+    }
+  }
+  for(let i of message){
+    for(let j of position){
+      if(i==j){
+        filterMessage.push(i)
+      }
+    }
   }
   console.log(filterMessage)
   return filterMessage.join("")

@@ -12,8 +12,11 @@ mobile_no:string=""
   Email:string="";
   Query:string="";
   a:string="";
-
-  constructor(router: ActivatedRoute) { }
+  error: string="";
+  success: string="";
+  constructor(router: ActivatedRoute) {
+    router.queryParams.subscribe((params) => {this.error= params['error'];this.success=params['success']})
+   }
 
   ngOnInit(): void {
   }
