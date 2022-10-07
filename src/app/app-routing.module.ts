@@ -21,12 +21,13 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { SubscriberComponent } from './subscriber/subscriber.component';
 import { SuccessfulComponent } from './subscriber/subscriber.component';
-import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoiceComponent } from './invoice/invoice.component'
 import { NewpostpaidComponent } from './admin/admin.component';
 import { ViewpostpaidComponent } from './admin/admin.component';
 import { EditpostpaidComponent } from './admin/admin.component';
 import { PostpaidComponent } from './postpaid/postpaid.component';
 import { HelpmeComponent } from './helpme/helpme.component';
+import {QueryComponent} from './query/query.component';
 
 const routes: Routes = [
   {path:'',redirectTo: '/home',pathMatch:'full'},
@@ -56,7 +57,10 @@ const routes: Routes = [
   {path: 'admin/editpostpaid',component : EditpostpaidComponent},
   {path: 'admin/viewpostpaid',component : ViewpostpaidComponent},
   {path:'postpaid',component:PostpaidComponent},
-  {path: 'help',component: HelpmeComponent}
+  {path: 'help',component: HelpmeComponent},
+{path:'query',component:QueryComponent}
+
+
 ]
 
 @NgModule({

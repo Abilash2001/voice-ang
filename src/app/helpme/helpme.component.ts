@@ -71,9 +71,8 @@ export class HelpmeComponent implements OnInit {
       
       const resp = (await axios.post("http://localhost:8000/chatResponse",newMessage)).data; 
       this.addBot(resp);
-    }
-    
   }
+}
 }
 
 function removeUnwantedWords(message: string): string

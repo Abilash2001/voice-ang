@@ -118,7 +118,7 @@ u .cover {
   -webkit-transform: translate(0, -12px);
           transform: translate(0, -12px);
 }
- 
+
 input#star4:checked ~ .face u,
 input#star2:checked ~ .face u {
   width: 36px;
@@ -146,13 +146,13 @@ input#star2:checked ~ .face u .cover {
   -webkit-transform: translate(0, -8px);
           transform: translate(0, -8px);
 }
- 
+
 input#star5:checked ~ .face u,
 input#star4:checked ~ .face u {
   -webkit-transform: rotate(180deg) translateY(-20px);
           transform: rotate(180deg) translateY(-20px);
 }
- 
+
 input#star3:checked ~ .face u {
   width: 42px;
   height: 6px;
@@ -166,7 +166,7 @@ input#star3:checked ~ .face u:before, input#star3:checked ~ .face u:after,
 input#star3:checked ~ .face u .cover {
   display: none;
 }
- 
+
 input:not(#star-reset):checked ~ .face {
   -webkit-animation: wobble 0.8s ease-out;
           animation: wobble 0.8s ease-out;
@@ -180,7 +180,7 @@ input:not(#star-reset):checked ~ .face u:before,
 input:not(#star-reset):checked ~ .face u:after {
   background: #3d3d3d;
 }
- 
+
 input#star5:checked ~ .face {
   background-color: #fa5563;
 }
@@ -188,7 +188,7 @@ input#star5:checked ~ .face u .cover {
   background: #fa5563;
   border-color: #fa5563;
 }
- 
+
 input#star4:checked ~ .face {
   background-color: #fa824e;
 }
@@ -196,11 +196,11 @@ input#star4:checked ~ .face u .cover {
   background: #fa824e;
   border-color: #fa824e;
 }
- 
+
 input#star3:checked ~ .face {
   background-color: #fccd3f;
 }
- 
+
 input#star2:checked ~ .face {
   background-color: #a0d77a;
 }
@@ -208,7 +208,7 @@ input#star2:checked ~ .face u .cover {
   background: #a0d77a;
   border-color: #a0d77a;
 }
- 
+
 input#star1:checked ~ .face {
   background-color: #6bca6c;
 }
@@ -216,7 +216,7 @@ input#star1:checked ~ .face u .cover {
   background: #6bca6c;
   border-color: #6bca6c;
 }
- 
+
 @-webkit-keyframes wobble {
   0% {
     -webkit-transform: scale(0.8);
@@ -243,7 +243,7 @@ input#star1:checked ~ .face u .cover {
             transform: scale(1);
   }
 }
- 
+
 @keyframes wobble {
   0% {
     -webkit-transform: scale(0.8);
@@ -310,7 +310,7 @@ input#star1:checked ~ .face u .cover {
       </fieldset>
     <span class="d-flex justify-content-center" style="position: relative;top: -5rem"><button style="width:30%" (click)="addFeedback()" class="btn btn-dark">Submit</button></span>
   </form>
-  </div> 
-</div> 
+  </div>
+</div>
 <app-footer></app-footer>
 </body>
