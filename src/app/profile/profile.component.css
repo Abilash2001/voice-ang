@@ -1,0 +1,23 @@
+div .col-7{
+  border:none;
+}
+h2,p{
+  margin-left:40px;
+  width:10rem;
+  padding-left:20px;
+}
+button{
+  border-radius:25px;
+  border:none;
+  margin-left:50px;
+}
+h1,h3,.col-4{
+  margin-top:2rem;
+}
+div .card-title {
+  text-align:center;
+  margin-left:-52px;
+}
+div .card-text{
+  margin-left:26px;
+}
