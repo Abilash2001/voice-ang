@@ -61,7 +61,11 @@ export class HelpmeComponent implements OnInit {
 
     if(this.message=="hi"){
       this.addBot("Hello, How are you thanks for visiting voizfonica, how may i help you")
-    }else{
+    }
+    else if(this.message=='How to change from prepaid to postpaid'){
+    this.addBot("")
+    }
+    else{
       this.addBot("You're welcome. Pleased to help")
     }
 

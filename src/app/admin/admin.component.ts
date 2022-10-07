@@ -53,6 +53,17 @@ export class AdminComponent implements OnInit, AfterViewInit {
     'Email':'',
     'Feedback':''
   }]
+
+
+
+  queries = [{
+    'mobile_no':'',
+    'Email':'',
+    'Query':''
+  }]
+
+
+
   ngAfterViewInit()
   {
     renderUserCountChart(this.userChartCanvas,this.userChart);
@@ -67,6 +78,11 @@ export class AdminComponent implements OnInit, AfterViewInit {
   getReview = async (value:number) => {
     return this.review = (await axios.get("http://localhost:8000/getReview?value="+value)).data;
   }
+
+  getQuery = async (value:number) => {
+    return this.queries = (await axios.get("http://localhost:8000/getquery?value="+value)).data;
+  }
+
 
 }
 
