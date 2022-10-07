@@ -11,8 +11,8 @@ export class BankComponent implements OnInit {
   locate: string="connection/successful"
   constructor(router: ActivatedRoute) {
     this.price=window.sessionStorage['price'];
-    
-    router.queryParams.subscribe((params) => { 
+
+    router.queryParams.subscribe((params) => {
       if(params['plan']){
         this.locate = "invoice?plan=True";
       }
@@ -21,7 +21,6 @@ export class BankComponent implements OnInit {
       }
     })
    }
-
   ngOnInit(): void {
   }
 
