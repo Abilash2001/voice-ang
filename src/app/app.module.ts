@@ -43,8 +43,12 @@ import {NewpostpaidComponent} from './admin/admin.component';
 import {ViewpostpaidComponent} from './admin/admin.component';
 import {EditpostpaidComponent} from './admin/admin.component';
 import { PostpaidComponent } from './postpaid/postpaid.component';
+
+import { ProfileComponent } from './profile/profile.component';
+
 import { QueryComponent } from './query/query.component';
 import {FetchqueryComponent} from './query/query.component';
+
 
 @NgModule({
   declarations: [
@@ -87,8 +91,9 @@ import {FetchqueryComponent} from './query/query.component';
     ViewpostpaidComponent,
     EditpostpaidComponent,
     PostpaidComponent,
+    ProfileComponent,
     QueryComponent,
-    FetchqueryComponent
+    FetchqueryComponent,
   ],
   imports: [
     BrowserModule,

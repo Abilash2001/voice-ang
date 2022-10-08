@@ -27,6 +27,7 @@ import { ViewpostpaidComponent } from './admin/admin.component';
 import { EditpostpaidComponent } from './admin/admin.component';
 import { PostpaidComponent } from './postpaid/postpaid.component';
 import { HelpmeComponent } from './helpme/helpme.component';
+import { ProfileComponent } from './profile/profile.component';
 import {QueryComponent} from './query/query.component';
 
 const routes: Routes = [
@@ -58,7 +59,8 @@ const routes: Routes = [
   {path: 'admin/viewpostpaid', component : ViewpostpaidComponent},
   {path:'postpaid', component:PostpaidComponent},
   {path: 'help', component: HelpmeComponent},
-  {path:'query', component:QueryComponent}
+  {path:'query', component:QueryComponent},
+  {path: 'profile',component:ProfileComponent}
 
 
 ]
