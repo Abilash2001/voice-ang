@@ -17,7 +17,7 @@ export class BankComponent implements OnInit {
         this.locate = "invoice?plan=True";
       }
       if(params['dongle']){
-        this.locate = "invoice?dongle=True"
+        this.locate = "invoice?dongle=True";
       }
     })
    }

@@ -31,7 +31,7 @@ recharge = async (planObject:any) => {
     let newRecharge = new FormData()
     newRecharge.append('id',window.sessionStorage['id'])
     newRecharge.append('pid',planObject.id)
-    const resp = (await axios.post("http://localhost:8000/recharge",newRecharge)).data
+    const resp = (await axios.post("http://localhost:8000/postrecharge",newRecharge)).data
     if(resp=="connection/bank?plan=True"){
       console.log(planObject.price)
       window.sessionStorage['price']=planObject.price;

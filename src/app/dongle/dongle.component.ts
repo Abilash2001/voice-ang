@@ -33,13 +33,13 @@ export class DongleComponent implements OnInit {
         let newRecharge = new FormData()
         newRecharge.append('id',window.sessionStorage['id'])
         newRecharge.append('pid',planObject.id)
-        const resp = (await axios.post("http://localhost:8000/recharge",newRecharge)).data
+        const resp = (await axios.post("http://localhost:8000/donglerecharge",newRecharge)).data
         if(resp=="connection/bank?dongle=True"){
           console.log(planObject.price)
           window.sessionStorage['price']=planObject.price;
           window.sessionStorage['cat']='d';
         }
-  
+
         window.location.href=resp;
       }
     }
