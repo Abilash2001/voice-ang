@@ -10,7 +10,7 @@
 
         <span class="container">
             <h1 class="text-danger">Voizfonica</h1>
-            <h5>No 123, Dubai Main Road, Dubai, UAE</h5>  
+            <h5>No 123, Dubai Main Road, Dubai, UAE</h5>
             <h5>Mail: voizfonicanoreply@gmail.com</h5>
             <h5>Mob: 1234567890</h5>
         </span>
@@ -69,23 +69,33 @@
             <h3 class="col-8"><i>Plan</i></h3>
             <h3 class="col">1</h3>
             <h3 class="col">${{beforeTax}}</h3><hr>
-
-
-
             <!-- <h3 class="col-8"><i>Delivery Charges</i></h3>
             <h3 class="col">-</h3>
             <h3 class="col">$40</h3><hr> -->
-
-
             <h3 class="col-8"><i>Tax</i></h3>
             <h3 class="col">-</h3>
             <h3 class="col">$10</h3><hr>
         </div>
+
+      <div class="container border border-2 p-3 row mb-3" *ngIf="dongle">
+            <h3 class="col-8"><i>Plan</i></h3>
+            <h3 class="col">1</h3>
+            <h3 class="col">${{beforeTax}}</h3><hr>
+            <!-- <h3 class="col-8"><i>Delivery Charges</i></h3>
+            <h3 class="col">-</h3>
+            <h3 class="col">$40</h3><hr> -->
+            <h3 class="col-8"><i>Tax</i></h3>
+            <h3 class="col">-</h3>
+            <h3 class="col">$10</h3><hr>
+        </div>
+
+
         <div class="container alert alert-success row">
             <h1 class="col-10">Total</h1>
             <h2 class="col" *ngIf="sim">$100</h2>
             <h2 class="col" *ngIf="plan">${{price}}</h2>
-        </div> 
+          <h2 class="col" *ngIf="dongle">${{price}}</h2>
+        </div>
 
         <div class="text-center mt-5">
             <h5><i>Thank you for using Voizfonica Service</i></h5>
