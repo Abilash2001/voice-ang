@@ -56,7 +56,7 @@
       <h3 class="alert alert-secondary"><b>History</b></h3>
       <div class="container card">
         <div class="container row p-2 " style="overflow-y: scroll;height:40rem">
-          <div class="card mb-3" *ngFor="let i of viHistoryPlan">
+          <div class="card mb-3" style="height: 12rem;" *ngFor="let i of viHistoryPlan">
               <div class="card-body mt-5 row">
                   <span class="bg-dark text-white col rounded text-center ">
                       <h1>${{i.plan_price || 0}}</h1>
@@ -90,7 +90,8 @@
               <h4 class="card-title alert alert-danger" style="position: relative;left:1.65rem"><b>{{i.a}}</b></h4>
               <p>{{i.Query}}</p>
           </span>
-          <span class="container p-2"><button class="btn btn-danger" style="width:80%">Contact</button></span>
+          <span class="container p-2"><button class="btn btn-warning" style="width:90%;position: relative;right: 2rem;" *ngIf="i.admin_name">Assigned to {{i.admin_name}}</button></span>
+          <span class="container p-2"><button class="btn btn-danger" style="width:90%;position: relative;right: 2rem;" *ngIf="!i.admin_name">Pending</button></span>
       </div>
     </div>
   </section>

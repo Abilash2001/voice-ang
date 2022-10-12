@@ -5,8 +5,8 @@
     </div>
     <nav  class="container mt-4" style="width: 80rem;">
         <ul class="d-flex justify-content-around list-unstyled">
-            <a class="text-decoration-none" href="/offers"><li class=""><p class="text-dark"> Prepaid Offers</p></li></a>
-          <a class="text-decoration-none" href="/postpaid"><li class=""><p class="text-dark"> Postpaid Offers</p></li></a>
+            <a class="text-decoration-none" href="/offers"><li class=""><p class="text-dark" *ngIf="checkPre"> Prepaid Offers</p></li></a>
+          <a class="text-decoration-none" href="/postpaid"><li class=""><p class="text-dark" *ngIf="checkPost"> Postpaid Offers</p></li></a>
             <a class="text-decoration-none" href="/feedback"><li><p class="text-dark">Feedback</p></li></a>
             <a class="text-decoration-none" href="/chat"><li><p class="text-dark">Chat</p></li></a>
             <a class="text-decoration-none" href="/query"><li><p class="text-dark">Query</p></li></a>

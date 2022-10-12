@@ -15,13 +15,25 @@ export class PlansComponent implements OnInit {
     'plan_validity':'',
     'id':""
   }]
+  viPostPlan = [{
+    'plan_price': '',
+    'plan_talktime':'',
+    'plan_data':'',
+    'plan_validity':'',
+    'id':""
+  }]
   constructor() { 
     try
     {
       (async () => {
         this.viPlan = (await axios.get("http://localhost:8000/plan?best=3")).data
         
+      })();
+      (async () => {
+        this.viPostPlan = (await axios.get("http://localhost:8000/postplan?best=3")).data
+        
       })()
+      
     }catch(e)
     {
       console.log(e);

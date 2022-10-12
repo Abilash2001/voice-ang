@@ -37,7 +37,9 @@ export class InvoiceComponent implements OnInit {
         }
     })
   }
-
+  printInvoice = () => {
+    window.print()
+  }
   ngOnInit(): void {
   }
 

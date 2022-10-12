@@ -53,6 +53,7 @@ query:any;
                     default:i.a="Unknown Issue";break;
                   }
                 }
+                this.query= this.query.reverse()
               })()
             }catch(e){
               console.log(e);

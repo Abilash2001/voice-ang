@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
     const resp = (await axios.post('http://localhost:8000/login',User)).data
     if(resp.authenticate == true){
       window.sessionStorage["id"]=resp.id
+      window.sessionStorage['cat']=resp.cat;
+      if(resp.aid){
+        window.sessionStorage['aid']=resp.aid;
+      }
     }
     window.location=resp.location;
   }

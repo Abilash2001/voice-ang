@@ -11,9 +11,10 @@ import { Chart } from 'chart.js';
 export class AdminComponent implements OnInit, AfterViewInit {
   success:string="";
   checked:boolean=false;
+  error:boolean=false;
   constructor(router: ActivatedRoute) {
     let isAdmin:string="";
-    router.queryParams.subscribe((params) => { return this.success=params['success']});
+    router.queryParams.subscribe((params) => { this.success=params['success'];this.error=params['error']});
     if(window.sessionStorage['id']!='undefined')
     {
       (async () => {
@@ -48,6 +49,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
   userChart:any;
   adminPhoneNo:string="";
   adminPassword:string="";
+  adminName:string="";
+  adminEmail:string="";
   review = [{
     'Name':'',
     'Email':'',
@@ -59,7 +62,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
   queries = [{
     'mobile_no':'',
     'Email':'',
-    'Query':''
+    'Query':'',
+    "id":"",
+    "admin_name":"",
+    "admin_id":""
   }]
 
 
@@ -68,10 +74,13 @@ export class AdminComponent implements OnInit, AfterViewInit {
   {
     renderUserCountChart(this.userChartCanvas,this.userChart);
   }
+
   addAccount = async () => {
     let adminAccount = new FormData();
     adminAccount.append('phoneNo',this.adminPhoneNo);
     adminAccount.append('password',this.adminPassword);
+    adminAccount.append('name',this.adminName);
+    adminAccount.append('email',this.adminEmail);
     const resp = (await axios.post("http://localhost:8000/newadmin",adminAccount)).data
     window.location=resp
   }
@@ -83,7 +92,15 @@ export class AdminComponent implements OnInit, AfterViewInit {
     return this.queries = (await axios.get("http://localhost:8000/getquery?value="+value)).data;
   }
 
+  closeTicket = async (id:string) => {
+    const resp = (await axios.get("http://localhost:8000/closeTick?id="+id)).data
+    window.location.href=resp;
+  }
 
+  assignToMe = async (id:string) => {
+    const resp = (await axios.get("http://localhost:8000/assignTick?id="+window.sessionStorage['aid']+"&uid="+id)).data;
+    window.location.href=resp;
+  }
 }
 
 async function renderUserCountChart(userChartCanvas:any,userChart:any)
