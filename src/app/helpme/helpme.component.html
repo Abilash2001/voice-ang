@@ -5,33 +5,6 @@
 </head>
 <body>
     <app-header></app-header>
-<!-- 
-    <section class="container mt-5">
-        <h3><b> Voizfonica Customer Care Number</b></h3>
-        <div class="container row">
-            <span class="col">
-                <h5 class="mt-3"><b><u>Office Address</u></b></h5>
-                <p>Voizfonica Idea Limited (formerly Idea Cellular Limited), <br>                 
-                    Birla Centurion, 10th Floor, Plot No. 794, B Wing, Pandurang Budhkar Marg,
-                    Worli, Mumbai - 400 030 India</p>
-            </span>
-            <span class="col">
-                <h5><b><u>Registered  Address</u></b></h5>
-                <p>Voizfonica Private Limited,<br>
-                    Suman Tower, Plot No. 18, Sector no. 11,  Gandhinagar - 382011<br> 
-                    India, CIN L32100GJ1996PLC030976.<br>
-                    Contact Number : +91-79 6671 4000, FAX : +91-79 2323 2251
-                    </p>
-            </span>
-        </div>
-        <div class="container row">
-            <h5><b><u>Connect with us on Whatsapp</u></b></h5>
-            <p>Get updates on your Vi™ account, best offers & more<br>
-             WhatsApp number – 9654297000</p>
-        </div>
-    </section> -->
-
-
     <section class="container border border-3 p-3" style="width: 90%;">
         <h1 class="text-center alert alert-secondary">Voiz Chat</h1>
         <div class="container border border-1 p-1 rounded" style="height:22rem;overflow-y: scroll;background-image: url('assets/chatbanner.png');">
@@ -46,7 +19,7 @@
             </div>
         </div>
         <form class="d-flex">
-            <input class="form-control" type="text" name="chat" id="" placeholder="Chat here..." [(ngModel)]="message">
+            <input class="form-control" type="text" name="chat" id="" placeholder="Chat here..." [(ngModel)]="message" autocomplete="off">
             <button class="btn btn-danger" (click)="addChat()">Send</button>
         </form>
     </section>

@@ -203,21 +203,26 @@ async function renderCustomerSatisfactory(userCategoryCanvaChart:any, userCatego
   })
 }
 
-function renderTIcketCategoryChart(userCategoryCanvaChart:any,userCategoryChart:any)
+async function renderTIcketCategoryChart(userCategoryCanvaChart:any,userCategoryChart:any)
 {
   userCategoryCanvaChart = document.getElementById('ticketCat');
   userCategoryChart = userCategoryCanvaChart.getContext('2d');
+  let resp:string[]=[];
+  const result = (await axios.get("http://localhost:8000/getquery?fetchCount=True")).data;
+  resp = result.toString().split("").reverse()
   new Chart(userCategoryChart,{
     type: 'pie',
     data: {
-      labels: ['Website','Phone','Whatsapp','Email'],
+      labels: ['Other','Mnp','Recharge','Connectivity','Network'],
       datasets: [{
           label: 'Users Types',
-          data: [200,100,10],
+          data: resp,
           backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(229, 123, 234, 0.2)',
+            'rgba(10, 262, 235, 0.2)'
           ],
           borderColor: [
               'rgba(255, 99, 132, 1)',

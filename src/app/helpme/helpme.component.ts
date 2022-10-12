@@ -63,8 +63,8 @@ export class HelpmeComponent implements OnInit {
       chatBody?.appendChild(chatParentNode);
       chatParentNode?.scrollIntoView()
 
-      this.message = this.message.trim().toUpperCase();
-      const newUserMessage = removeUnwantedWords(this.message);
+      this.message = this.message.trim().toLowerCase();
+      const newUserMessage = this.message.trim() //removeUnwantedWords(this.message);
       this.message = "";
       let newMessage = new FormData();
       newMessage.append("newchat", newUserMessage);

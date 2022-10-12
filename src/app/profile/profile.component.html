@@ -1,58 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <app-meta></app-meta>
 </head>
-<body>
-<div class="row" style="height:200rem;">
-  <div class="col-4" >
-    <img src="assets/brand.png">
-    <h2>Profile</h2>
-    <p>Kannan<br>6381578847<br>Prepaid</p>
-    <button class="btn btn-danger">Add Profile</button>
+<body *ngIf="authenticate">
+  <app-header></app-header>
+  
+  <div class="container mt-3 d-flex justify-content-between">
+  <h4><span class="text-danger"><b>Hi,</b></span> {{profile.name}}</h4> 
+  <h4><b class="text-danger">Data Balance: </b>{{dataBalance}}GB</h4>
   </div>
-  <div class="col-8">
-    <h1>My Account</h1>
-    <h3>Active packs & benefits</h3>
-    <div class="row">
-      <div class="col-4">
-        <div class="card" style="border-radius:25px;">
-          <div class="card-body">
-            <div class="card-title"><button class="btn btn-danger" href="#">Recharge History</button></div>
-            <p class="card-text">List of your recharges within past 90days</p>
-          </div>
+  <hr>
+  <section class="container mt-3">
+    <div class="container card float-start" style="width: 38rem;">
+      <h3 class="alert alert-secondary text-center">Hot Selling Pack</h3>
+      <div class="row p-2">
+      <div class="container card p-3 col ms-2 me-2" style="width: 20rem;" *ngFor="let item of viPlan">
+        <span class="bg-dark p-2 rounded">
+            <h4 class="text-center text-white p-2">Price: <b>${{item.plan_price || 0}}</b></h4>
+        </span>
+        <div class="row mt-2 p-3">
+          <span class="container col text-center">
+            <h5><b>{{item.plan_talktime || "unknown"}}</b></h5>
+            <h6>Calls</h6>
+          </span>
+          <span class="container col text-center">
+            <h5><b>{{item.plan_data || 0}}GB</b></h5>
+            <h6>Data</h6>
+          </span>
+          <span class="container col text-center">
+            <h5 class="col"><b>{{item.plan_validity || 0}} Days</b></h5>
+            <h6>Validity</h6>
+          </span>
+          <button class="btn btn-danger" style="position: relative;right:3rem" (click)="recharge({'id':item.id,'price':item.plan_price})">Recharge</button>
         </div>
       </div>
-      <div class="col-4">
-        <div class="card" style="border-radius:25px;height:9.5rem;">
-          <div class="card-body">
-            <div class="card-title"><button class="btn btn-danger" href="#">Active packs & services</button></div>
-            <p class="card-text">Check your active packs and benefits</p>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="row">
-      <h3>More services</h3>
-      <div class="col-4">
-        <div class="card" style="border-radius:25px;">
-          <div class="card-body">
-            <div class="card-title"><button class="btn btn-danger" href="#">Service Request & Complaints</button></div>
-            <p class="card-text">Track the status of your service requests </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="card" style="border-radius:25px;height:10.8rem;">
-          <div class="card-body">
-            <div class="card-title"><button class="btn btn-danger" href="#">Do not Disturb(DND)</button></div>
-            <p class="card-text">Choose to receive promotional & sms</p>
-          </div>
-        </div>
+
+
+    <div class="container card float-end" style="width: 31rem;height: 28rem;">
+      <h3 class="alert alert-secondary text-center">Data Usage</h3>
+      <div class="card-body">
+        <canvas id="userData"></canvas>
       </div>
     </div>
+  </section>
+  <section>
+    <div class="container mt-5 d-flex justify-content-center">
+      <img src="assets/profile-banner.png" class="img-fluid rounded mt-5" width="80%" alt="">
+    </div>
+  </section>
+  <div class="container d-flex justify-content-around">
+    <section class="container p-3" style="width: 150rem;">
+      <h3 class="alert alert-secondary"><b>History</b></h3>
+      <div class="container card">
+        <div class="container row p-2 " style="overflow-y: scroll;height:40rem">
+          <div class="card mb-3" *ngFor="let i of viHistoryPlan">
+              <div class="card-body mt-5 row">
+                  <span class="bg-dark text-white col rounded text-center ">
+                      <h1>${{i.plan_price || 0}}</h1>
+                  </span>
+                  <span class="col p-3 text-center">
+                      <h5><b>{{i.plan_talktime || "unknown"}}</b></h5>
+                      <h6>Calls</h6>
+                  </span>
+                  <span class="col p-3 text-center">
+                      <h5><b>{{i.plan_data || 0}}GB</b></h5>
+                      <h6>Data</h6>
+                  </span>
+                  <span class="col p-3 text-center">
+                    <h5><b>{{i.plan_validity || 0}}Days</b></h5>
+                    <h6>Validity</h6>
+                </span>
+                  <span class="col p-3">
+                      <button id="{{i.id}}" class="btn btn-danger" style="width: 60%;" (click)="recharge({'id':i.id,'price':i.plan_price})">Buy Pack</button>
+                  </span>
+              </div>
+          </div>
+      </div>
+      </div>
+  </section>
+
+  <section class="container p-3" style="width:80rem">
+    <h3 class="alert alert-secondary"><b>Query</b></h3>
+    <div class="container row" style="overflow-y: scroll;height:40rem;">
+      <div class="container card mb-1" *ngFor="let i of query">
+          <span class="container card-body">
+              <h4 class="card-title alert alert-danger" style="position: relative;left:1.65rem"><b>{{i.a}}</b></h4>
+              <p>{{i.Query}}</p>
+          </span>
+          <span class="container p-2"><button class="btn btn-danger" style="width:80%">Contact</button></span>
+      </div>
+    </div>
+  </section>
   </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </body>
 </html>

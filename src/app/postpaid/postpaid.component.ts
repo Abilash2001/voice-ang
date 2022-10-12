@@ -36,7 +36,6 @@ recharge = async (planObject:any) => {
       console.log(planObject.price)
       window.sessionStorage['price']=planObject.price;
     }
-
     window.location.href=resp;
   }
 }

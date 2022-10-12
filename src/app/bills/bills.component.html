@@ -19,8 +19,9 @@
                         </label>
                     </span>
                     <span class="d-flex mt-5 ms-4" style="display:inline-block; border: 0.5px solid black;outline:none;border-radius: 30px;">
-                        <input type="tel" name="phone" placeholder="Your Number" class="p-3" style="border:none;width: 25rem;outline:none;border-radius: 30px;" required>
-                        <button class="btn btn-dark ps-3 pe-4 text-center" style="border-radius: 30px;width:30%">{{text}}</button>
+                        <input type="tel" name="phone" placeholder="Your Number" class="p-3" style="border:none;width: 25rem;outline:none;border-radius: 30px;" [(ngModel)]="phone" required>
+                        <button class="btn btn-dark ps-3 pe-4 text-center" style="border-radius: 30px;width:30%" *ngIf="preCheck" (click)="rechargePrepaid()">Recharge</button>
+                        <button class="btn btn-dark ps-3 pe-4 text-center" style="border-radius: 30px;width:30%" *ngIf="postCheck">Pay Bills</button>
                     </span>
                 </form>
             </div>

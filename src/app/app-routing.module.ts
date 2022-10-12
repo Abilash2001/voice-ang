@@ -58,7 +58,7 @@ const routes: Routes = [
   {path: 'admin/editpostpaid', component : EditpostpaidComponent},
   {path: 'admin/viewpostpaid', component : ViewpostpaidComponent},
   {path:'postpaid', component:PostpaidComponent},
-  {path: 'help', component: HelpmeComponent},
+  {path: 'chat', component: HelpmeComponent},
   {path:'query', component:QueryComponent},
   {path: 'profile',component:ProfileComponent}
 

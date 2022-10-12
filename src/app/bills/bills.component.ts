@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import axios from 'axios';
 @Component({
   selector: 'app-bills',
   templateUrl: './bills.component.html',
@@ -14,6 +14,13 @@ export class BillsComponent implements OnInit {
   text:string="Recharge"
   preCheck:boolean =true;
   postCheck:boolean=false;
-  prepaid = ()=> {this.text = "Recharge";this.preCheck=true;this.postCheck=false}
-  postpaid = ()=> {this.text = "Pay Bills";this.postCheck=true;this.preCheck=false}
+  phone:string="";
+  prepaid = ()=> {this.preCheck=true;this.postCheck=false}
+  postpaid = ()=> {this.postCheck=true;this.preCheck=false}
+
+  rechargePrepaid = async () => {
+    const resp = (await axios.get("http://localhost:8000/getphone?phone="+this.phone)).data;
+    window.sessionStorage['id']=resp.id;
+    window.location.href= resp.location;
+  }
 }
